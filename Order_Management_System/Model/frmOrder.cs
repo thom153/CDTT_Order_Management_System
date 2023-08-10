@@ -209,13 +209,15 @@ namespace Order_Management_System.Model
             //need to create form table selection and waiter selection
             frmTableSelect frm = new frmTableSelect();
             MainClass.BlurBackground(frm);
-            if(frm.TableName != "")
+            if (frm.TableName != "")
             {
-                lblTable.Text = frm.TableName;
-            }    
+                lblTable1.Text = frm.TableName.Split('\n')[0];
+                lblTable1.Visible = true;
+            }
             else
             {
-                lblTable.Text = "";
+                lblTable1.Text = "";
+                lblTable1.Visible = false;
             }
 
             frmWaiterSelect frm2 = new frmWaiterSelect();
@@ -223,10 +225,12 @@ namespace Order_Management_System.Model
             if (frm2.WaiterName != "")
             {
                 lblWaiter.Text = frm2.WaiterName;
+                lblWaiter.Visible = true;
             }
             else
             {
                 lblWaiter.Text = "";
+                lblWaiter.Visible = false;
             }
         }
     }
