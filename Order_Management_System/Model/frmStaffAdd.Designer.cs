@@ -285,7 +285,7 @@ namespace Order_Management_System.Model
             this.cbRole.ItemHeight = 30;
             this.cbRole.Items.AddRange(new object[] {
             "Quản lý",
-            "Nhân viên",
+            "Nhân viên phục vụ",
             "Thu ngân",
             "Bếp"});
             this.cbRole.Location = new System.Drawing.Point(44, 522);

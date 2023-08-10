@@ -45,6 +45,14 @@ namespace Order_Management_System.Model
             da.Fill(dt);
 
             CategoryPanel.Controls.Clear();
+            Guna.UI2.WinForms.Guna2Button b2 = new Guna.UI2.WinForms.Guna2Button();
+            b2.FillColor = Color.FromArgb(128, 128, 255);
+            b2.Size = new Size(166, 57);
+            b2.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            b2.Text = "Tất cả";
+            b2.CheckedState.FillColor = Color.FromArgb(255, 128, 128);
+            b2.Click += new EventHandler(b_Click);
+            CategoryPanel.Controls.Add(b2);
 
             if (dt.Rows.Count > 0)
             {
@@ -55,6 +63,7 @@ namespace Order_Management_System.Model
                     b.Size = new Size(166, 57);
                     b.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
                     b.Text = row["catName"].ToString();
+                    b.CheckedState.FillColor = Color.FromArgb(255, 128, 128);
 
                     //event for click
                     b.Click += new EventHandler(b_Click);
@@ -69,6 +78,13 @@ namespace Order_Management_System.Model
         private void b_Click(object sender, EventArgs e)
         {
             Guna.UI2.WinForms.Guna2Button b = (Guna.UI2.WinForms.Guna2Button)sender;
+            if (b.Text == "Tất cả")
+            {
+                txtSearch.Text = "1";
+                txtSearch.Text = "";
+                return;
+
+            }    
             foreach(var item in ItemPanel.Controls)
             {
                 var pro = (ucItem)item;
@@ -186,6 +202,32 @@ namespace Order_Management_System.Model
             guna2DataGridView2.Rows.Clear();
             MainID = 0;
             lblTotal.Text = "0.00";
+        }
+
+        private void btnDinein_Click(object sender, EventArgs e)
+        {
+            //need to create form table selection and waiter selection
+            frmTableSelect frm = new frmTableSelect();
+            MainClass.BlurBackground(frm);
+            if(frm.TableName != "")
+            {
+                lblTable.Text = frm.TableName;
+            }    
+            else
+            {
+                lblTable.Text = "";
+            }
+
+            frmWaiterSelect frm2 = new frmWaiterSelect();
+            MainClass.BlurBackground(frm2);
+            if (frm2.WaiterName != "")
+            {
+                lblWaiter.Text = frm2.WaiterName;
+            }
+            else
+            {
+                lblWaiter.Text = "";
+            }
         }
     }
 }
