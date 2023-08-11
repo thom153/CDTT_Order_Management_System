@@ -59,7 +59,7 @@ namespace Order_Management_System.Model
                 foreach (DataRow row in dt.Rows)
                 {
                     Guna.UI2.WinForms.Guna2Button b = new Guna.UI2.WinForms.Guna2Button();
-                    b.FillColor = Color.FromArgb(128, 128, 255);
+                    b.FillColor = Color.FromArgb(28, 128, 255);
                     b.Size = new Size(166, 57);
                     b.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
                     b.Text = row["catName"].ToString();
@@ -91,7 +91,7 @@ namespace Order_Management_System.Model
                 pro.Visible = pro.iCategory.ToLower().Contains(b.Text.Trim().ToLower());
             }    
         }
-        private void AddItems(string id, string name, string cat, string price, Image iImage)
+        private void AddItems(string id,string itemmID, string name, string cat, string price, Image iImage)
         {
             var w = new ucItem()
             {
@@ -99,7 +99,7 @@ namespace Order_Management_System.Model
                 iPrice = price,
                 iCategory = cat,
                 iImage = iImage,
-                id = Convert.ToInt32(id)
+                id = Convert.ToInt32(itemmID)
             };
 
             ItemPanel.Controls.Add(w);
@@ -111,7 +111,7 @@ namespace Order_Management_System.Model
                 DataGridViewRow existingRow = null;
                 foreach (DataGridViewRow item in guna2DataGridView2.Rows)
                 {
-                    if (Convert.ToInt32(item.Cells["dgvid"].Value) == wdg.id)
+                    if (Convert.ToInt32(item.Cells["dgvitemmID"].Value) == wdg.id)
                     {
                         existingRow = item;
                         break;
@@ -126,9 +126,10 @@ namespace Order_Management_System.Model
                     existingRow.Cells["dgvAmount"].Value = int.Parse(existingRow.Cells["dgvQty"].Value.ToString()) *
                                                                double.Parse(existingRow.Cells["dgvPrice"].Value.ToString());
                 }
-                else
+                else 
                 {
-                    guna2DataGridView2.Rows.Add(new object[] { 0, wdg.id, wdg.iName, 1, wdg.iPrice, wdg.iPrice });
+                    //add new item first for STT and 2nd 0 ffrom id
+                    guna2DataGridView2.Rows.Add(new object[] {0,0, wdg.id, wdg.iName, 1, wdg.iPrice, wdg.iPrice });
                 }
 
                 GetTotal();
@@ -156,7 +157,7 @@ namespace Order_Management_System.Model
                 // Format the price with 3 zeros after the integer part
                 string formattedPrice = (iPrice * 1000).ToString("N0");
 
-                AddItems(item["itemID"].ToString(), item["iName"].ToString(), item["catName"].ToString(),
+                AddItems("0",item["itemID"].ToString(), item["iName"].ToString(), item["catName"].ToString(),
                     formattedPrice, Image.FromStream(new MemoryStream(imagearray)));
             }
         }
@@ -193,11 +194,11 @@ namespace Order_Management_System.Model
             lblTotal.Text = tot.ToString("N2");
         }
 
-        private void guna2TileButton16_Click(object sender, EventArgs e)
+        private void btnNeww_Click_1(object sender, EventArgs e)
         {
-            lblTable.Text = "";
+            lblTable1.Text = "";
             lblWaiter.Text = "";
-            lblTable.Visible = false;
+            lblTable1.Visible = false;
             lblWaiter.Visible = false;
             guna2DataGridView2.Rows.Clear();
             MainID = 0;
@@ -211,7 +212,8 @@ namespace Order_Management_System.Model
             MainClass.BlurBackground(frm);
             if (frm.TableName != "")
             {
-                lblTable1.Text = frm.TableName.Split('\n')[0];
+                //lblTable1.Text = frm.TableName.Split('\n')[0];
+                lblTable1.Text = frm.TableName;
                 lblTable1.Visible = true;
             }
             else
@@ -233,5 +235,108 @@ namespace Order_Management_System.Model
                 lblWaiter.Visible = false;
             }
         }
+
+        private void btnKoTT_Click(object sender, EventArgs e)
+        {
+            //save data in the database
+            //Create tables
+
+            string qry1 = ""; //Main Table
+            string qry2 = ""; //Details Table
+
+            int DetailID = 0;
+
+            if (MainID == 0) //Insert
+            {
+            //    qry1 = @"Insert into tblMain Values ( @MainID, @aDate, @aTime, @TableName, @WaiterName, @status, @total, @received,@change)
+            //    Select SCOPE_IDENTITY();";
+            //    this line will get recent add id value
+                qry1 = @"Insert into tblMain (aDate, aTime, TableName, WaiterName, status, total, received, change) 
+                Values (@aDate, @aTime, @TableName, @WaiterName, @status, @total, @received, @change);
+                SELECT SCOPE_IDENTITY();";
+            }
+            else //Update
+            {
+                qry1 = @"Update tblMain set status = @status, total = @total, received = @received, change = @change 
+                where MainID = @ID";
+            }
+
+            Hashtable ht = new Hashtable();
+
+            SqlCommand cmd = new SqlCommand(qry1, MainClass.con);
+            cmd.Parameters.AddWithValue("@ID", MainID);
+            cmd.Parameters.AddWithValue("@aDate", Convert.ToDateTime(DateTime.Now.Date));
+            cmd.Parameters.AddWithValue("@aTime", DateTime.Now.ToShortTimeString());
+            cmd.Parameters.AddWithValue("@TableName", lblTable1.Text);
+            cmd.Parameters.AddWithValue("@WaiterName", lblWaiter.Text);
+            cmd.Parameters.AddWithValue("@status", "Đang chờ");
+            cmd.Parameters.AddWithValue("@total", Convert.ToDouble(lblTotal.Text));
+            cmd.Parameters.AddWithValue("@received", Convert.ToDouble(0));
+            cmd.Parameters.AddWithValue("@change", Convert.ToDouble(0));
+
+            if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+            if (MainID == 0)
+            {
+                MainID = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            else
+            {
+                cmd.ExecuteNonQuery();
+            }
+            if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+
+            foreach (DataGridViewRow row in guna2DataGridView2.Rows)
+            {
+                DetailID = Convert.ToInt32(row.Cells["dgvid"].Value);
+
+                if (DetailID == 0) //insert
+                {
+                    //qry2 = @"Insert into tblDetails Values (@MainID ,@itemmID, @qty ,@price,@amount)";
+                    qry2 = @"Insert into tblDetails (MainID, itemmID, qty, price, amount) 
+                    Values (@MainID, @itemmID, @qty, @price, @amount)";
+                }
+                else
+                {
+                    qry2 = @"Update tblDetails Set itemmID = @itemmID, qty = @qty, price = @price, amount = @amount
+                    where DetailID = @ID";
+                }
+
+                SqlCommand cmd2 = new SqlCommand(qry2, MainClass.con);
+                cmd2.Parameters.AddWithValue("@ID", DetailID);
+                cmd2.Parameters.AddWithValue("@MainID", MainID);
+                cmd2.Parameters.AddWithValue("@itemmID", Convert.ToInt32(row.Cells["dgvitemmID"].Value));
+                cmd2.Parameters.AddWithValue("@qty", Convert.ToInt32(row.Cells["dgvQty"].Value));
+                cmd2.Parameters.AddWithValue("@price", Convert.ToDouble(row.Cells["dgvPrice"].Value));
+                cmd2.Parameters.AddWithValue("@amount", Convert.ToDouble(row.Cells["dgvAmount"].Value));
+
+
+                if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+                cmd2.ExecuteScalar();
+                if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+
+                //if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+                //if (DetailID == 0)
+                //{
+                //    cmd2.ExecuteNonQuery();
+                //}
+                //else
+                //{
+                //    MainID = Convert.ToInt32(cmd2.ExecuteScalar());
+                //}
+                //if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+
+                guna2MessageDialog1.Show("Lưu thành công!");
+                MainID = 0;
+                guna2DataGridView2.Rows.Clear();
+                lblTable1.Text = "";
+                lblWaiter.Text = " ";
+                lblTable1.Visible = false;
+                lblWaiter.Visible = false;
+                lblTotal.Text = "00";
+            }
+
+
+        }
+   
     }
 }

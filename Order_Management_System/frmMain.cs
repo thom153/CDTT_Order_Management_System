@@ -85,5 +85,9 @@ namespace Order_Management_System
             frm.Show();
         }
 
+        private void btnKitchen_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmKitchenView());
+        }
     }
 }
