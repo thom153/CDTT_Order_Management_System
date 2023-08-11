@@ -196,9 +196,11 @@ namespace Order_Management_System.Model
             // guna2Panel6
             // 
             this.guna2Panel6.Controls.Add(this.btnDinein);
+            this.guna2Panel6.Controls.Add(this.lblWaiter);
             this.guna2Panel6.Controls.Add(this.guna2PictureBox8);
             this.guna2Panel6.Controls.Add(this.btnVoidList);
             this.guna2Panel6.Controls.Add(this.btnBill1);
+            this.guna2Panel6.Controls.Add(this.lblTable1);
             this.guna2Panel6.Controls.Add(this.btnKOTT);
             this.guna2Panel6.Controls.Add(this.btnNeww);
             this.guna2Panel6.Controls.Add(this.label9);
@@ -216,7 +218,7 @@ namespace Order_Management_System.Model
             this.lblWaiter.BackColor = System.Drawing.Color.Transparent;
             this.lblWaiter.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWaiter.ForeColor = System.Drawing.Color.White;
-            this.lblWaiter.Location = new System.Drawing.Point(956, 117);
+            this.lblWaiter.Location = new System.Drawing.Point(853, 55);
             this.lblWaiter.Name = "lblWaiter";
             this.lblWaiter.Size = new System.Drawing.Size(97, 38);
             this.lblWaiter.TabIndex = 9;
@@ -229,7 +231,7 @@ namespace Order_Management_System.Model
             this.lblTable1.BackColor = System.Drawing.Color.Transparent;
             this.lblTable1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTable1.ForeColor = System.Drawing.Color.White;
-            this.lblTable1.Location = new System.Drawing.Point(860, 117);
+            this.lblTable1.Location = new System.Drawing.Point(853, 12);
             this.lblTable1.Name = "lblTable1";
             this.lblTable1.Size = new System.Drawing.Size(81, 38);
             this.lblTable1.TabIndex = 7;
@@ -1216,10 +1218,8 @@ namespace Order_Management_System.Model
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1087, 632);
             this.Controls.Add(this.guna2DataGridView2);
-            this.Controls.Add(this.lblWaiter);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.ItemPanel);
-            this.Controls.Add(this.lblTable1);
             this.Controls.Add(this.CategoryPanel);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
@@ -1256,7 +1256,6 @@ namespace Order_Management_System.Model
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

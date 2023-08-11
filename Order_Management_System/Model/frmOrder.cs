@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -91,6 +92,7 @@ namespace Order_Management_System.Model
                 pro.Visible = pro.iCategory.ToLower().Contains(b.Text.Trim().ToLower());
             }    
         }
+
         private void AddItems(string id,string itemmID, string name, string cat, string price, Image iImage)
         {
             var w = new ucItem()
@@ -133,6 +135,7 @@ namespace Order_Management_System.Model
                 }
 
                 GetTotal();
+
             };
         }
 
