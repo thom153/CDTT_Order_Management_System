@@ -288,20 +288,70 @@ namespace Order_Management_System.Model
             }
             if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
 
+            //foreach (DataGridViewRow row in guna2DataGridView2.Rows)
+            //{
+            //    DetailID = Convert.ToInt32(row.Cells["dgvid"].Value);
+
+            //    if (DetailID == 0) //insert
+            //    {
+            //        //qry2 = @"Insert into tblDetails Values (@MainID ,@itemmID, @qty ,@price,@amount)";
+            //        qry2 = @"Insert into tblDetails (MainnID, itemmID, qty, price, amount) 
+            //        Values (@MainID, @itemmID, @qty, @price, @amount)";
+            //    }
+            //    else
+            //    {
+            //        qry2 = @"Update tblDetails Set itemmID = @itemmID, qty = @qty, price = @price, amount = @amount
+            //        where DetailID = @ID";
+            //    }
+
+            //    SqlCommand cmd2 = new SqlCommand(qry2, MainClass.con);
+            //    cmd2.Parameters.AddWithValue("@ID", DetailID);
+            //    cmd2.Parameters.AddWithValue("@MainID", MainID);
+            //    cmd2.Parameters.AddWithValue("@itemmID", Convert.ToInt32(row.Cells["dgvitemmID"].Value));
+            //    cmd2.Parameters.AddWithValue("@qty", Convert.ToInt32(row.Cells["dgvQty"].Value));
+            //    cmd2.Parameters.AddWithValue("@price", Convert.ToDouble(row.Cells["dgvPrice"].Value));
+            //    cmd2.Parameters.AddWithValue("@amount", Convert.ToDouble(row.Cells["dgvAmount"].Value));
+
+
+            //    if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+            //    cmd2.ExecuteScalar();
+            //    if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+
+            //    //if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+            //    //if (DetailID == 0)
+            //    //{
+            //    //    cmd2.ExecuteNonQuery();
+            //    //}
+            //    //else
+            //    //{
+            //    //    MainID = Convert.ToInt32(cmd2.ExecuteScalar());
+            //    //}
+            //    //if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+
+            //    guna2MessageDialog1.Show("Lưu thành công!");
+            //    MainID = 0;
+            //    DetailID = 0;
+            //    guna2DataGridView2.Rows.Clear();
+            //    lblTable1.Text = "";
+            //    lblWaiter.Text = " ";
+            //    lblTable1.Visible = false;
+            //    lblWaiter.Visible = false;
+            //    lblTotal.Text = "00";
+            //}
+
             foreach (DataGridViewRow row in guna2DataGridView2.Rows)
             {
                 DetailID = Convert.ToInt32(row.Cells["dgvid"].Value);
 
                 if (DetailID == 0) //insert
                 {
-                    //qry2 = @"Insert into tblDetails Values (@MainID ,@itemmID, @qty ,@price,@amount)";
-                    qry2 = @"Insert into tblDetails (MainID, itemmID, qty, price, amount) 
-                    Values (@MainID, @itemmID, @qty, @price, @amount)";
+                    qry2 = @"Insert into tblDetails (MainnID, itemmID, qty, price, amount) 
+            Values (@MainID, @itemmID, @qty, @price, @amount)";
                 }
                 else
                 {
                     qry2 = @"Update tblDetails Set itemmID = @itemmID, qty = @qty, price = @price, amount = @amount
-                    where DetailID = @ID";
+            where DetailID = @ID";
                 }
 
                 SqlCommand cmd2 = new SqlCommand(qry2, MainClass.con);
@@ -312,31 +362,39 @@ namespace Order_Management_System.Model
                 cmd2.Parameters.AddWithValue("@price", Convert.ToDouble(row.Cells["dgvPrice"].Value));
                 cmd2.Parameters.AddWithValue("@amount", Convert.ToDouble(row.Cells["dgvAmount"].Value));
 
-
                 if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
-                cmd2.ExecuteScalar();
+                cmd2.ExecuteNonQuery();
                 if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
-
-                //if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
-                //if (DetailID == 0)
-                //{
-                //    cmd2.ExecuteNonQuery();
-                //}
-                //else
-                //{
-                //    MainID = Convert.ToInt32(cmd2.ExecuteScalar());
-                //}
-                //if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
-
-                guna2MessageDialog1.Show("Lưu thành công!");
-                MainID = 0;
-                guna2DataGridView2.Rows.Clear();
-                lblTable1.Text = "";
-                lblWaiter.Text = " ";
-                lblTable1.Visible = false;
-                lblWaiter.Visible = false;
-                lblTotal.Text = "00";
             }
+
+            // Commit transaction here
+            if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+            SqlTransaction transaction = MainClass.con.BeginTransaction();
+            cmd.Transaction = transaction;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                transaction.Commit();
+                guna2MessageDialog1.Show("Lưu thành công!");
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                guna2MessageDialog1.Show("Lỗi xảy ra: " + ex.Message);
+            }
+            finally
+            {
+                if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+            }
+
+            MainID = 0;
+            DetailID = 0;
+            guna2DataGridView2.Rows.Clear();
+            lblTable1.Text = "";
+            lblWaiter.Text = " ";
+            lblTable1.Visible = false;
+            lblWaiter.Visible = false;
+            lblTotal.Text = "00";
 
 
         }

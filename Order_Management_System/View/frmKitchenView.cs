@@ -35,8 +35,10 @@ namespace Order_Management_System.View
 
             FlowLayoutPanel p1;
 
-            for(int i=0; i< dt1.Rows.Count; i++)
+            for (int i = 0; i < dt1.Rows.Count; i++)
+
             {
+
                 p1 = new FlowLayoutPanel();
                 p1.AutoSize = true;
                 p1.Width = 230;
@@ -52,7 +54,7 @@ namespace Order_Management_System.View
                 p2.Width = 230;
                 p2.Height = 1250;
                 p2.FlowDirection = FlowDirection.TopDown;
-                p2.Margin = new Padding(0,0,0,0);
+                p2.Margin = new Padding(0, 0, 0, 0);
 
                 Label lb1 = new Label();
                 lb1.ForeColor = Color.White;
@@ -73,8 +75,6 @@ namespace Order_Management_System.View
                 lb2.Text = "Nhân viên phục vụ: " + dt1.Rows[i]["WaiterName"].ToString();
                 lb3.Text = "Thời gian order: " + dt1.Rows[i]["aTime"].ToString();
 
-                //lb2.Text = "Nhân viên phục vụ: " + dt1.Rows[i]["WaiterName"].ToString();
-                //lb3.Text = "Thời gian order: " + dt1.Rows[i]["aTime"].ToString();
 
                 p2.Controls.Add(lb1);
                 p2.Controls.Add(lb2);
@@ -82,19 +82,19 @@ namespace Order_Management_System.View
 
                 p1.Controls.Add(p2);
 
-                //Now  add items
-                //int mid = 0;
-                //mid = Convert.ToInt32(dt1.Rows[i]["MainID"].ToString());
+                //Now add items
+                int mid = 0;
+                mid = Convert.ToInt32(dt1.Rows[i]["MainID"].ToString());
 
-                //string qry2 = @"Select * from tblMain m
-                //                inner join tblDetails d on m.MainID = d.MainID
-                //                inner join Items i on i.itemID = d.itemmID
-                //                where m.MainID = " + mid + "";
+                string qry2 = @"Select * from tblMain m
+                                inner join tblDetails d on m.MainID = d.MainnID
+                                inner join Items i on i.itemID = d.itemmID
+                                where m.MainID = " + mid + "";
 
-                //SqlCommand cmd2 = new SqlCommand(qry2, MainClass.con);
-                //DataTable dt2 = new DataTable();
-                //SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
-                //da2.Fill(dt2);
+                SqlCommand cmd2 = new SqlCommand(qry2, MainClass.con);
+                DataTable dt2 = new DataTable();
+                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
+                da2.Fill(dt2);
 
                 //for (int j = 0; j < dt2.Rows.Count; j++)
                 //{
@@ -102,60 +102,43 @@ namespace Order_Management_System.View
                 //    lb4.ForeColor = Color.White;
                 //    lb4.Margin = new Padding(10, 5, 3, 10);
                 //    lb4.AutoSize = true;
-
                 //    int no = j + 1;
-                //    //lb4.Text = " " + no + " " + dt2.Rows[j]["iName"].ToString() + "" + dt2.Rows[j]["qty"].ToString();
-                //    lb4.Text = no + ". " + dt2.Rows[j]["iName"].ToString() + " - Số lượng: " + dt2.Rows[j]["qty"].ToString();
-
+                //    lb4.Text = " " + no + " " + dt2.Rows[j]["iName"].ToString() + "" + dt2.Rows[j]["qty"].ToString();
+                //    //lb4.Text = no + ". " + dt2.Rows[j]["iName"].ToString() + " - Số lượng: " + dt2.Rows[j]["qty"].ToString();
 
                 //    p1.Controls.Add(lb4);
-                int mid = 0;
-                mid = Convert.ToInt32(dt1.Rows[i]["MainID"].ToString());
+                //}
 
-
-                string qry2 = @"select * from tblMain m inner join tblDetails d on m.MainID = d.MainID
-                                    inner join items i on i.itemID = d.itemmID where m.MainID = " + mid + "";
-
-                SqlCommand cmd2 = new SqlCommand(qry2, MainClass.con);
-                DataTable dt2 = new DataTable();
-                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
-                da2.Fill(dt2);
 
                 for (int j = 0; j < dt2.Rows.Count; j++)
                 {
 
                     Label lb5 = new Label();
-
                     lb5.ForeColor = Color.Black;
                     lb5.Margin = new Padding(10, 5, 3, 5);
                     lb5.AutoSize = true;
-
-                    //int no = j + 1;
-
                     lb5.Text = dt2.Rows[j]["qty"].ToString() + " | " + dt2.Rows[j]["iName"].ToString();
-
                     p1.Controls.Add(lb5);
-
                 }
 
 
                 //Add button to change the order status
                 Guna.UI2.WinForms.Guna2Button b = new Guna.UI2.WinForms.Guna2Button();
-                b.AutoRoundedCorners = true;
-                b.Size = new Size(100, 35);
-                b.FillColor = Color.FromArgb(255, 128, 128);
-                b.Margin = new Padding(30, 5, 3, 10);
-                b.Text = "Đã hoàn thành";
-                b.Tag = dt1.Rows[i]["MainID"].ToString(); //store the id
+                    b.AutoRoundedCorners = true;
+                    b.Size = new Size(100, 35);
+                    b.FillColor = Color.FromArgb(255, 128, 128);
+                    b.Margin = new Padding(30, 5, 3, 10);
+                    b.Text = "Đã hoàn thành";
+                    b.Tag = dt1.Rows[i]["MainID"].ToString(); //store the id
 
-                b.Click += new EventHandler(b_click);
-                p1.Controls.Add(b);
+                    b.Click += new EventHandler(b_click);
+                    p1.Controls.Add(b);
 
-                flowLayoutPanel1.Controls.Add(p1);
+                    flowLayoutPanel1.Controls.Add(p1);
 
             }
-
         }
+
 
         private void b_click(object sender, EventArgs e)
         {
