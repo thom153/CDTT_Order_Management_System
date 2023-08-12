@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Order_Management_System.Model;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,9 +19,9 @@ namespace Order_Management_System.View
         {
             InitializeComponent();
         }
-
+        
         private void frmKitchenView_Load(object sender, EventArgs e)
-        {
+        { 
             GetOrders();
         }
 
@@ -54,7 +55,9 @@ namespace Order_Management_System.View
                 p2.Width = 230;
                 p2.Height = 1250;
                 p2.FlowDirection = FlowDirection.TopDown;
-                p2.Margin = new Padding(0, 0, 0, 0);
+                p2.Margin = new Padding(0, 0, 0, 0); 
+                //căn lề các bên (Top, left, right, down), Padding là một lớp trong C# để
+                //đại diện cho khoảng cách từ biên của một điều khiển tới các phần xung quanh nó.
 
                 Label lb1 = new Label();
                 lb1.ForeColor = Color.White;
