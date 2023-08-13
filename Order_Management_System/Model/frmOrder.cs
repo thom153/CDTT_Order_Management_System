@@ -93,6 +93,7 @@ namespace Order_Management_System.Model
             }    
         }
 
+
         private void AddItems(string id,string itemmID, string name, string cat, string price, Image iImage)
         {
             var w = new ucItem()
@@ -241,118 +242,242 @@ namespace Order_Management_System.Model
                 lblWaiter.Visible = false;
             }
         }
+
         private void btnKoTT_Click(object sender, EventArgs e)
         {
-            //Must select btnDineIn before 
             if (!isDineInSelected)
             {
                 guna2MessageDialog2.Show("Vui lòng chọn bàn và NVPV trước khi gửi bếp.");
-                return; // Ngăn việc thực thi tiếp theo
-            }
-            //save data in the database
-            //Create tables
-
-            string qry1 = ""; //Main Table
-            string qry2 = ""; //Details Table
-
-            int DetailID = 0;
-
-            if (MainID == 0) //Insert
-            {
-            //    qry1 = @"Insert into tblMain Values ( @MainID, @aDate, @aTime, @TableName, @WaiterName, @status, @total, @received,@change)
-            //    Select SCOPE_IDENTITY();";
-            //    this line will get recent add id value
-                qry1 = @"Insert into tblMain (aDate, aTime, TableName, WaiterName, status, total, received, change) 
-                Values (@aDate, @aTime, @TableName, @WaiterName, @status, @total, @received, @change);
-                SELECT SCOPE_IDENTITY();";
-            }
-            else //Update
-            {
-                qry1 = @"Update tblMain set status = @status, total = @total, received = @received, change = @change 
-                where MainID = @ID";
+                return;
             }
 
-            Hashtable ht = new Hashtable();
+            SaveOrderToDatabase();
 
-            SqlCommand cmd = new SqlCommand(qry1, MainClass.con);
-            cmd.Parameters.AddWithValue("@ID", MainID);
-            cmd.Parameters.AddWithValue("@aDate", Convert.ToDateTime(DateTime.Now.Date));
-            cmd.Parameters.AddWithValue("@aTime", DateTime.Now.ToShortTimeString());
-            cmd.Parameters.AddWithValue("@TableName", lblTable1.Text);
-            cmd.Parameters.AddWithValue("@WaiterName", lblWaiter.Text);
-            cmd.Parameters.AddWithValue("@status", "Đang chờ");
-            cmd.Parameters.AddWithValue("@total", Convert.ToDouble(lblTotal.Text));
-            cmd.Parameters.AddWithValue("@received", Convert.ToDouble(0));
-            cmd.Parameters.AddWithValue("@change", Convert.ToDouble(0));
+            // Reset dữ liệu sau khi gửi
+            ResetOrderData();
+        }
 
-            if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
-            if (MainID == 0)
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (MainID > 0) // Chỉ lưu khi có MainID
             {
-                MainID = Convert.ToInt32(cmd.ExecuteScalar());
+                UpdateOrderStatus("Đã lưu");
             }
             else
             {
-                cmd.ExecuteNonQuery();
+                guna2MessageDialog1.Show("Chưa có bản ghi nào để lưu!");
             }
-            if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+        }
 
+        private void UpdateOrderStatus(string newStatus)
+        {
+            string updateStatusQuery = "UPDATE tblMain SET status = @status WHERE MainID = @ID";
+
+            using (SqlCommand cmd = new SqlCommand(updateStatusQuery, MainClass.con))
+            {
+                cmd.Parameters.AddWithValue("@ID", MainID);
+                cmd.Parameters.AddWithValue("@status", newStatus);
+
+                try
+                {
+                    if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+                    cmd.ExecuteNonQuery();
+                    guna2MessageDialog1.Show("Cập nhật trạng thái thành công!");
+
+                    // Kiểm tra trạng thái sau cập nhật
+                    string checkStatusQuery = "SELECT status FROM tblMain WHERE MainID = @ID";
+
+                    using (SqlCommand checkCmd = new SqlCommand(checkStatusQuery, MainClass.con))
+                    {
+                        checkCmd.Parameters.AddWithValue("@ID", MainID);
+                        string status = checkCmd.ExecuteScalar().ToString();
+                        MessageBox.Show("Trạng thái của MainID " + MainID + ": " + status);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    guna2MessageDialog1.Show("Lỗi xảy ra: " + ex.Message);
+                }
+                finally
+                {
+                    if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+                }
+            }
+        }
+
+        private void SaveOrderToDatabase()
+        {
+            if (MainID == 0) //Insert
+            {
+                MainID = InsertMainRecord();
+            }
+            else //Update
+            {
+                UpdateMainRecord();
+            }
+
+            // Lưu chi tiết đơn hàng
             foreach (DataGridViewRow row in guna2DataGridView2.Rows)
             {
-                DetailID = Convert.ToInt32(row.Cells["dgvid"].Value);
+                int itemID = Convert.ToInt32(row.Cells["dgvitemmID"].Value);
+                int quantity = Convert.ToInt32(row.Cells["dgvQty"].Value);
+                double price = Convert.ToDouble(row.Cells["dgvPrice"].Value);
+                double amount = Convert.ToDouble(row.Cells["dgvAmount"].Value);
 
-                if (DetailID == 0) //insert
+                if (MainID > 0)
                 {
-                    qry2 = @"Insert into tblDetails (MainnID, itemmID, qty, price, amount) 
-            Values (@MainID, @itemmID, @qty, @price, @amount)";
+                    int detailID = Convert.ToInt32(row.Cells["dgvid"].Value);
+                    if (detailID == 0) // Insert
+                    {
+                        InsertDetailRecord(MainID, itemID, quantity, price, amount);
+                    }
+                    else // Update
+                    {
+                        UpdateDetailRecord(detailID, itemID, quantity, price, amount);
+                    }
                 }
-                else
-                {
-                    qry2 = @"Update tblDetails Set itemmID = @itemmID, qty = @qty, price = @price, amount = @amount
-            where DetailID = @ID";
-                }
-
-                SqlCommand cmd2 = new SqlCommand(qry2, MainClass.con);
-                cmd2.Parameters.AddWithValue("@ID", DetailID);
-                cmd2.Parameters.AddWithValue("@MainID", MainID);
-                cmd2.Parameters.AddWithValue("@itemmID", Convert.ToInt32(row.Cells["dgvitemmID"].Value));
-                cmd2.Parameters.AddWithValue("@qty", Convert.ToInt32(row.Cells["dgvQty"].Value));
-                cmd2.Parameters.AddWithValue("@price", Convert.ToDouble(row.Cells["dgvPrice"].Value));
-                cmd2.Parameters.AddWithValue("@amount", Convert.ToDouble(row.Cells["dgvAmount"].Value));
-
-                if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
-                cmd2.ExecuteNonQuery();
-                if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
             }
-
-            // Commit transaction here
-            if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
-            SqlTransaction transaction = MainClass.con.BeginTransaction();
-            cmd.Transaction = transaction;
-            try
-            {
-                cmd.ExecuteNonQuery();
-                transaction.Commit();
-                guna2MessageDialog1.Show("Lưu thành công!");
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                guna2MessageDialog1.Show("Lỗi xảy ra: " + ex.Message);
-            }
-            finally
-            {
-                if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
-            }
-
-            MainID = 0;
-            //DetailID = 0;
-            guna2DataGridView2.Rows.Clear();
-            lblTable1.Text = "";
-            lblWaiter.Text = " ";
-            lblTable1.Visible = false;
-            lblWaiter.Visible = false;
-            lblTotal.Text = "0.00";
         }
-   
+
+        private int InsertMainRecord()
+        {
+            string insertQuery = @"INSERT INTO tblMain (aDate, aTime, TableName, WaiterName, status, total, received, change) 
+                                   VALUES (@aDate, @aTime, @TableName, @WaiterName, @status, @total, @received, @change);
+                                   SELECT SCOPE_IDENTITY();";
+
+            using (SqlCommand cmd = new SqlCommand(insertQuery, MainClass.con))
+            {
+                cmd.Parameters.AddWithValue("@aDate", DateTime.Now.Date);
+                cmd.Parameters.AddWithValue("@aTime", DateTime.Now.ToShortTimeString());
+                cmd.Parameters.AddWithValue("@TableName", lblTable1.Text);
+                cmd.Parameters.AddWithValue("@WaiterName", lblWaiter.Text);
+                cmd.Parameters.AddWithValue("@status", "Đang chờ");
+                cmd.Parameters.AddWithValue("@total", Convert.ToDouble(lblTotal.Text));
+                cmd.Parameters.AddWithValue("@received", Convert.ToDouble(0));
+                cmd.Parameters.AddWithValue("@change", Convert.ToDouble(0));
+
+                try
+                {
+                    if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+                catch (Exception ex)
+                {
+                    guna2MessageDialog1.Show("Lỗi xảy ra khi thêm đơn hàng: " + ex.Message);
+                    return 0;
+                }
+                finally
+                {
+                    if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+                }
+            }
+        }
+
+        private void UpdateMainRecord()
+        {
+            string updateQuery = @"UPDATE tblMain SET status = @status, total = @total, received = @received, change = @change 
+                                   WHERE MainID = @ID";
+
+            using (SqlCommand cmd = new SqlCommand(updateQuery, MainClass.con))
+            {
+                cmd.Parameters.AddWithValue("@ID", MainID);
+                cmd.Parameters.AddWithValue("@status", "Đang chờ");
+                cmd.Parameters.AddWithValue("@total", Convert.ToDouble(lblTotal.Text));
+                cmd.Parameters.AddWithValue("@received", Convert.ToDouble(0));
+                cmd.Parameters.AddWithValue("@change", Convert.ToDouble(0));
+
+                try
+                {
+                    if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    guna2MessageDialog1.Show("Lỗi xảy ra khi cập nhật đơn hàng: " + ex.Message);
+                }
+                finally
+                {
+                    if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+                }
+            }
+        }
+
+        private void InsertDetailRecord(int mainID, int itemID, int quantity, double price, double amount)
+        {
+            string insertQuery = @"INSERT INTO tblDetails (MainID, itemmID, qty, price, amount) 
+                                   VALUES (@MainID, @itemmID, @qty, @price, @amount)";
+
+            using (SqlCommand cmd = new SqlCommand(insertQuery, MainClass.con))
+            {
+                cmd.Parameters.AddWithValue("@MainID", mainID);
+                cmd.Parameters.AddWithValue("@itemmID", itemID);
+                cmd.Parameters.AddWithValue("@qty", quantity);
+                cmd.Parameters.AddWithValue("@price", price);
+                cmd.Parameters.AddWithValue("@amount", amount);
+
+                try
+                {
+                    if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    guna2MessageDialog1.Show("Lỗi xảy ra khi thêm chi tiết đơn hàng: " + ex.Message);
+                }
+                finally
+                {
+                    if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+                }
+            }
+        }
+
+        private void UpdateDetailRecord(int detailID, int itemID, int quantity, double price, double amount)
+        {
+            string updateQuery = @"UPDATE tblDetails SET itemmID = @itemmID, qty = @qty, price = @price, amount = @amount 
+                                   WHERE detailID = @detailID";
+
+            using (SqlCommand cmd = new SqlCommand(updateQuery, MainClass.con))
+            {
+                cmd.Parameters.AddWithValue("@detailID", detailID);
+                cmd.Parameters.AddWithValue("@itemmID", itemID);
+                cmd.Parameters.AddWithValue("@qty", quantity);
+                cmd.Parameters.AddWithValue("@price", price);
+                cmd.Parameters.AddWithValue("@amount", amount);
+
+                try
+                {
+                    if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    guna2MessageDialog1.Show("Lỗi xảy ra khi cập nhật chi tiết order: " + ex.Message);
+                }
+                finally
+                {
+                    if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+                }
+            }
+        }
+
+        private void ResetOrderData()
+        {
+            // Reset dữ liệu trên form sau khi gửi bếp
+            lblTable1.Text = "Bàn số: ";
+            lblWaiter.Text = "Nhân viên: ";
+            lblTotal.Text = "0.00";
+            isDineInSelected = false;
+            guna2DataGridView2.Rows.Clear();
+        }
+
     }
-}
+} 
+
+
+
+
+
+
+
+
+

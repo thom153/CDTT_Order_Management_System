@@ -103,6 +103,12 @@
     <Compile Include="Model\frmTableSelect.Designer.cs">
       <DependentUpon>frmTableSelect.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\frmTestOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\frmTestOrder.Designer.cs">
+      <DependentUpon>frmTestOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\frmWaiterSelect.cs">
       <SubType>Form</SubType>
     </Compile>

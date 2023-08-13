@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Order_Management_System.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace Order_Management_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmMain());
+            //Application.Run(new frmLogin());
         }
     }
 }

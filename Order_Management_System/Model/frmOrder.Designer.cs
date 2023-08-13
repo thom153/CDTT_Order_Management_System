@@ -29,10 +29,10 @@ namespace Order_Management_System.Model
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrder));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrder));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
@@ -97,11 +97,12 @@ namespace Order_Management_System.Model
             this.guna2MessageDialog1 = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2MessageDialog2 = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.ucItem4 = new Order_Management_System.Model.ucItem();
             this.ucItem2 = new Order_Management_System.Model.ucItem();
             this.ucItem1 = new Order_Management_System.Model.ucItem();
             this.ucItem3 = new Order_Management_System.Model.ucItem();
-            this.guna2MessageDialog2 = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.btnSave = new Guna.UI2.WinForms.Guna2TileButton();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
@@ -227,7 +228,7 @@ namespace Order_Management_System.Model
             this.btnDinein.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDinein.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDinein.ForeColor = System.Drawing.Color.White;
-            this.btnDinein.Image = global::Order_Management_System.Properties.Resources.icons8_restaurant_table_50;
+            this.btnDinein.Image = ((System.Drawing.Image)(resources.GetObject("btnDinein.Image")));
             this.btnDinein.Location = new System.Drawing.Point(349, 12);
             this.btnDinein.Name = "btnDinein";
             this.btnDinein.Size = new System.Drawing.Size(120, 92);
@@ -252,7 +253,7 @@ namespace Order_Management_System.Model
             // 
             this.guna2PictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2PictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox8.Image = global::Order_Management_System.Properties.Resources.icons8_shutdown_64;
+            this.guna2PictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox8.Image")));
             this.guna2PictureBox8.ImageRotate = 0F;
             this.guna2PictureBox8.Location = new System.Drawing.Point(992, 21);
             this.guna2PictureBox8.Name = "guna2PictureBox8";
@@ -277,7 +278,7 @@ namespace Order_Management_System.Model
             this.btnVoidList.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnVoidList.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoidList.ForeColor = System.Drawing.Color.White;
-            this.btnVoidList.Image = global::Order_Management_System.Properties.Resources.icons8_cancel_order_50;
+            this.btnVoidList.Image = ((System.Drawing.Image)(resources.GetObject("btnVoidList.Image")));
             this.btnVoidList.Location = new System.Drawing.Point(727, 12);
             this.btnVoidList.Name = "btnVoidList";
             this.btnVoidList.Size = new System.Drawing.Size(120, 92);
@@ -298,7 +299,7 @@ namespace Order_Management_System.Model
             this.btnBill1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnBill1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBill1.ForeColor = System.Drawing.Color.White;
-            this.btnBill1.Image = global::Order_Management_System.Properties.Resources.icons8_bill_50;
+            this.btnBill1.Image = ((System.Drawing.Image)(resources.GetObject("btnBill1.Image")));
             this.btnBill1.Location = new System.Drawing.Point(601, 12);
             this.btnBill1.Name = "btnBill1";
             this.btnBill1.Size = new System.Drawing.Size(120, 92);
@@ -332,7 +333,7 @@ namespace Order_Management_System.Model
             this.btnKOTT.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnKOTT.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKOTT.ForeColor = System.Drawing.Color.White;
-            this.btnKOTT.Image = global::Order_Management_System.Properties.Resources.icons8_restaurant_50__1_1;
+            this.btnKOTT.Image = ((System.Drawing.Image)(resources.GetObject("btnKOTT.Image")));
             this.btnKOTT.Location = new System.Drawing.Point(475, 12);
             this.btnKOTT.Name = "btnKOTT";
             this.btnKOTT.Size = new System.Drawing.Size(120, 92);
@@ -354,7 +355,7 @@ namespace Order_Management_System.Model
             this.btnNeww.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnNeww.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNeww.ForeColor = System.Drawing.Color.White;
-            this.btnNeww.Image = global::Order_Management_System.Properties.Resources.icons8_add_50;
+            this.btnNeww.Image = ((System.Drawing.Image)(resources.GetObject("btnNeww.Image")));
             this.btnNeww.Location = new System.Drawing.Point(223, 12);
             this.btnNeww.Name = "btnNeww";
             this.btnNeww.Size = new System.Drawing.Size(120, 92);
@@ -377,7 +378,7 @@ namespace Order_Management_System.Model
             // guna2PictureBox9
             // 
             this.guna2PictureBox9.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox9.Image = global::Order_Management_System.Properties.Resources.icons8_restaurant_80;
+            this.guna2PictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox9.Image")));
             this.guna2PictureBox9.ImageRotate = 0F;
             this.guna2PictureBox9.Location = new System.Drawing.Point(23, 21);
             this.guna2PictureBox9.Name = "guna2PictureBox9";
@@ -402,7 +403,7 @@ namespace Order_Management_System.Model
             // guna2PictureBox6
             // 
             this.guna2PictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox6.Image = global::Order_Management_System.Properties.Resources.icons8_shutdown_64;
+            this.guna2PictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox6.Image")));
             this.guna2PictureBox6.ImageRotate = 0F;
             this.guna2PictureBox6.Location = new System.Drawing.Point(963, 21);
             this.guna2PictureBox6.Name = "guna2PictureBox6";
@@ -426,7 +427,7 @@ namespace Order_Management_System.Model
             this.guna2TileButton9.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2TileButton9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2TileButton9.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton9.Image = global::Order_Management_System.Properties.Resources.icons8_cancel_order_50;
+            this.guna2TileButton9.Image = ((System.Drawing.Image)(resources.GetObject("guna2TileButton9.Image")));
             this.guna2TileButton9.Location = new System.Drawing.Point(658, 12);
             this.guna2TileButton9.Name = "guna2TileButton9";
             this.guna2TileButton9.Size = new System.Drawing.Size(120, 92);
@@ -447,7 +448,7 @@ namespace Order_Management_System.Model
             this.guna2TileButton10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2TileButton10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2TileButton10.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton10.Image = global::Order_Management_System.Properties.Resources.icons8_bill_50;
+            this.guna2TileButton10.Image = ((System.Drawing.Image)(resources.GetObject("guna2TileButton10.Image")));
             this.guna2TileButton10.Location = new System.Drawing.Point(521, 12);
             this.guna2TileButton10.Name = "guna2TileButton10";
             this.guna2TileButton10.Size = new System.Drawing.Size(120, 92);
@@ -468,7 +469,7 @@ namespace Order_Management_System.Model
             this.guna2TileButton11.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2TileButton11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2TileButton11.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton11.Image = global::Order_Management_System.Properties.Resources.icons8_restaurant_50__1_1;
+            this.guna2TileButton11.Image = ((System.Drawing.Image)(resources.GetObject("guna2TileButton11.Image")));
             this.guna2TileButton11.Location = new System.Drawing.Point(384, 12);
             this.guna2TileButton11.Name = "guna2TileButton11";
             this.guna2TileButton11.Size = new System.Drawing.Size(120, 92);
@@ -489,7 +490,7 @@ namespace Order_Management_System.Model
             this.guna2TileButton12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2TileButton12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2TileButton12.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton12.Image = global::Order_Management_System.Properties.Resources.icons8_add_50;
+            this.guna2TileButton12.Image = ((System.Drawing.Image)(resources.GetObject("guna2TileButton12.Image")));
             this.guna2TileButton12.Location = new System.Drawing.Point(248, 12);
             this.guna2TileButton12.Name = "guna2TileButton12";
             this.guna2TileButton12.Size = new System.Drawing.Size(120, 92);
@@ -511,7 +512,7 @@ namespace Order_Management_System.Model
             // guna2PictureBox7
             // 
             this.guna2PictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox7.Image = global::Order_Management_System.Properties.Resources.icons8_order_30;
+            this.guna2PictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox7.Image")));
             this.guna2PictureBox7.ImageRotate = 0F;
             this.guna2PictureBox7.Location = new System.Drawing.Point(23, 21);
             this.guna2PictureBox7.Name = "guna2PictureBox7";
@@ -536,7 +537,7 @@ namespace Order_Management_System.Model
             // guna2PictureBox4
             // 
             this.guna2PictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox4.Image = global::Order_Management_System.Properties.Resources.icons8_shutdown_64;
+            this.guna2PictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox4.Image")));
             this.guna2PictureBox4.ImageRotate = 0F;
             this.guna2PictureBox4.Location = new System.Drawing.Point(963, 21);
             this.guna2PictureBox4.Name = "guna2PictureBox4";
@@ -560,7 +561,7 @@ namespace Order_Management_System.Model
             this.guna2TileButton5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2TileButton5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2TileButton5.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton5.Image = global::Order_Management_System.Properties.Resources.icons8_cancel_order_50;
+            this.guna2TileButton5.Image = ((System.Drawing.Image)(resources.GetObject("guna2TileButton5.Image")));
             this.guna2TileButton5.Location = new System.Drawing.Point(658, 12);
             this.guna2TileButton5.Name = "guna2TileButton5";
             this.guna2TileButton5.Size = new System.Drawing.Size(120, 92);
@@ -581,7 +582,7 @@ namespace Order_Management_System.Model
             this.guna2TileButton6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2TileButton6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2TileButton6.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton6.Image = global::Order_Management_System.Properties.Resources.icons8_bill_50;
+            this.guna2TileButton6.Image = ((System.Drawing.Image)(resources.GetObject("guna2TileButton6.Image")));
             this.guna2TileButton6.Location = new System.Drawing.Point(521, 12);
             this.guna2TileButton6.Name = "guna2TileButton6";
             this.guna2TileButton6.Size = new System.Drawing.Size(120, 92);
@@ -602,7 +603,7 @@ namespace Order_Management_System.Model
             this.guna2TileButton7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2TileButton7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2TileButton7.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton7.Image = global::Order_Management_System.Properties.Resources.icons8_restaurant_50__1_1;
+            this.guna2TileButton7.Image = ((System.Drawing.Image)(resources.GetObject("guna2TileButton7.Image")));
             this.guna2TileButton7.Location = new System.Drawing.Point(384, 12);
             this.guna2TileButton7.Name = "guna2TileButton7";
             this.guna2TileButton7.Size = new System.Drawing.Size(120, 92);
@@ -623,7 +624,7 @@ namespace Order_Management_System.Model
             this.guna2TileButton8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2TileButton8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2TileButton8.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton8.Image = global::Order_Management_System.Properties.Resources.icons8_add_50;
+            this.guna2TileButton8.Image = ((System.Drawing.Image)(resources.GetObject("guna2TileButton8.Image")));
             this.guna2TileButton8.Location = new System.Drawing.Point(248, 12);
             this.guna2TileButton8.Name = "guna2TileButton8";
             this.guna2TileButton8.Size = new System.Drawing.Size(120, 92);
@@ -645,7 +646,7 @@ namespace Order_Management_System.Model
             // guna2PictureBox5
             // 
             this.guna2PictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox5.Image = global::Order_Management_System.Properties.Resources.icons8_order_30;
+            this.guna2PictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox5.Image")));
             this.guna2PictureBox5.ImageRotate = 0F;
             this.guna2PictureBox5.Location = new System.Drawing.Point(23, 21);
             this.guna2PictureBox5.Name = "guna2PictureBox5";
@@ -670,7 +671,7 @@ namespace Order_Management_System.Model
             // guna2PictureBox2
             // 
             this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox2.Image = global::Order_Management_System.Properties.Resources.icons8_shutdown_64;
+            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
             this.guna2PictureBox2.ImageRotate = 0F;
             this.guna2PictureBox2.Location = new System.Drawing.Point(963, 21);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
@@ -694,7 +695,7 @@ namespace Order_Management_System.Model
             this.guna2TileButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2TileButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2TileButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton1.Image = global::Order_Management_System.Properties.Resources.icons8_cancel_order_50;
+            this.guna2TileButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2TileButton1.Image")));
             this.guna2TileButton1.Location = new System.Drawing.Point(658, 12);
             this.guna2TileButton1.Name = "guna2TileButton1";
             this.guna2TileButton1.Size = new System.Drawing.Size(120, 92);
@@ -715,7 +716,7 @@ namespace Order_Management_System.Model
             this.guna2TileButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2TileButton2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2TileButton2.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton2.Image = global::Order_Management_System.Properties.Resources.icons8_bill_50;
+            this.guna2TileButton2.Image = ((System.Drawing.Image)(resources.GetObject("guna2TileButton2.Image")));
             this.guna2TileButton2.Location = new System.Drawing.Point(521, 12);
             this.guna2TileButton2.Name = "guna2TileButton2";
             this.guna2TileButton2.Size = new System.Drawing.Size(120, 92);
@@ -736,7 +737,7 @@ namespace Order_Management_System.Model
             this.guna2TileButton3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2TileButton3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2TileButton3.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton3.Image = global::Order_Management_System.Properties.Resources.icons8_restaurant_50__1_1;
+            this.guna2TileButton3.Image = ((System.Drawing.Image)(resources.GetObject("guna2TileButton3.Image")));
             this.guna2TileButton3.Location = new System.Drawing.Point(384, 12);
             this.guna2TileButton3.Name = "guna2TileButton3";
             this.guna2TileButton3.Size = new System.Drawing.Size(120, 92);
@@ -757,7 +758,7 @@ namespace Order_Management_System.Model
             this.guna2TileButton4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2TileButton4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2TileButton4.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton4.Image = global::Order_Management_System.Properties.Resources.icons8_add_50;
+            this.guna2TileButton4.Image = ((System.Drawing.Image)(resources.GetObject("guna2TileButton4.Image")));
             this.guna2TileButton4.Location = new System.Drawing.Point(248, 12);
             this.guna2TileButton4.Name = "guna2TileButton4";
             this.guna2TileButton4.Size = new System.Drawing.Size(120, 92);
@@ -779,7 +780,7 @@ namespace Order_Management_System.Model
             // guna2PictureBox3
             // 
             this.guna2PictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox3.Image = global::Order_Management_System.Properties.Resources.icons8_order_30;
+            this.guna2PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.Image")));
             this.guna2PictureBox3.ImageRotate = 0F;
             this.guna2PictureBox3.Location = new System.Drawing.Point(23, 21);
             this.guna2PictureBox3.Name = "guna2PictureBox3";
@@ -792,7 +793,7 @@ namespace Order_Management_System.Model
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.Image = global::Order_Management_System.Properties.Resources.icons8_shutdown_64;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageRotate = 0F;
             this.btnExit.Location = new System.Drawing.Point(963, 21);
             this.btnExit.Name = "btnExit";
@@ -816,7 +817,7 @@ namespace Order_Management_System.Model
             this.btnVoidOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnVoidOrder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoidOrder.ForeColor = System.Drawing.Color.White;
-            this.btnVoidOrder.Image = global::Order_Management_System.Properties.Resources.icons8_cancel_order_50;
+            this.btnVoidOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnVoidOrder.Image")));
             this.btnVoidOrder.Location = new System.Drawing.Point(658, 12);
             this.btnVoidOrder.Name = "btnVoidOrder";
             this.btnVoidOrder.Size = new System.Drawing.Size(120, 92);
@@ -837,7 +838,7 @@ namespace Order_Management_System.Model
             this.btnBill.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnBill.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBill.ForeColor = System.Drawing.Color.White;
-            this.btnBill.Image = global::Order_Management_System.Properties.Resources.icons8_bill_50;
+            this.btnBill.Image = ((System.Drawing.Image)(resources.GetObject("btnBill.Image")));
             this.btnBill.Location = new System.Drawing.Point(521, 12);
             this.btnBill.Name = "btnBill";
             this.btnBill.Size = new System.Drawing.Size(120, 92);
@@ -858,7 +859,7 @@ namespace Order_Management_System.Model
             this.btnKOT.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnKOT.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKOT.ForeColor = System.Drawing.Color.White;
-            this.btnKOT.Image = global::Order_Management_System.Properties.Resources.icons8_restaurant_50__1_1;
+            this.btnKOT.Image = ((System.Drawing.Image)(resources.GetObject("btnKOT.Image")));
             this.btnKOT.Location = new System.Drawing.Point(384, 12);
             this.btnKOT.Name = "btnKOT";
             this.btnKOT.Size = new System.Drawing.Size(120, 92);
@@ -879,7 +880,7 @@ namespace Order_Management_System.Model
             this.btnNew.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnNew.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.Color.White;
-            this.btnNew.Image = global::Order_Management_System.Properties.Resources.icons8_add_50;
+            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.Location = new System.Drawing.Point(248, 12);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(120, 92);
@@ -901,7 +902,7 @@ namespace Order_Management_System.Model
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.Image = global::Order_Management_System.Properties.Resources.icons8_order_30;
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(23, 21);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
@@ -913,6 +914,7 @@ namespace Order_Management_System.Model
             // 
             // guna2Panel2
             // 
+            this.guna2Panel2.Controls.Add(this.btnSave);
             this.guna2Panel2.Controls.Add(this.lblTotal);
             this.guna2Panel2.Controls.Add(this.label10);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1118,7 +1120,7 @@ namespace Order_Management_System.Model
             // 
             this.dgvDel.FillWeight = 50F;
             this.dgvDel.HeaderText = "";
-            this.dgvDel.Image = global::Order_Management_System.Properties.Resources.icons8_delete_641;
+            this.dgvDel.Image = ((System.Drawing.Image)(resources.GetObject("dgvDel.Image")));
             this.dgvDel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dgvDel.MinimumWidth = 50;
             this.dgvDel.Name = "dgvDel";
@@ -1136,7 +1138,7 @@ namespace Order_Management_System.Model
             // 
             this.dataGridViewImageColumn1.FillWeight = 50F;
             this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::Order_Management_System.Properties.Resources.icons8_delete_641;
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn1.MinimumWidth = 50;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
@@ -1155,7 +1157,7 @@ namespace Order_Management_System.Model
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearch.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.IconLeft = global::Order_Management_System.Properties.Resources.icons8_search_64;
+            this.txtSearch.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtSearch.IconLeft")));
             this.txtSearch.Location = new System.Drawing.Point(163, 121);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.txtSearch.Name = "txtSearch";
@@ -1165,6 +1167,15 @@ namespace Order_Management_System.Model
             this.txtSearch.Size = new System.Drawing.Size(386, 37);
             this.txtSearch.TabIndex = 18;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // guna2MessageDialog2
+            // 
+            this.guna2MessageDialog2.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.guna2MessageDialog2.Caption = "OMS";
+            this.guna2MessageDialog2.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
+            this.guna2MessageDialog2.Parent = null;
+            this.guna2MessageDialog2.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.guna2MessageDialog2.Text = null;
             // 
             // ucItem4
             // 
@@ -1214,14 +1225,27 @@ namespace Order_Management_System.Model
             this.ucItem3.Size = new System.Drawing.Size(212, 225);
             this.ucItem3.TabIndex = 7;
             // 
-            // guna2MessageDialog2
+            // btnSave
             // 
-            this.guna2MessageDialog2.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
-            this.guna2MessageDialog2.Caption = "OMS";
-            this.guna2MessageDialog2.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
-            this.guna2MessageDialog2.Parent = null;
-            this.guna2MessageDialog2.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
-            this.guna2MessageDialog2.Text = null;
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSave.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnSave.BorderRadius = 10;
+            this.btnSave.BorderThickness = 2;
+            this.btnSave.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Image = global::Order_Management_System.Properties.Resources.icons8_add_50;
+            this.btnSave.Location = new System.Drawing.Point(696, 14);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(82, 56);
+            this.btnSave.TabIndex = 11;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // frmOrder
             // 
@@ -1341,5 +1365,6 @@ namespace Order_Management_System.Model
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
         private System.Windows.Forms.DataGridViewImageColumn dgvDel;
         private Guna.UI2.WinForms.Guna2MessageDialog guna2MessageDialog2;
+        private Guna.UI2.WinForms.Guna2TileButton btnSave;
     }
 }
