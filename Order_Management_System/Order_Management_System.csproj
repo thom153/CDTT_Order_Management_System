@@ -67,6 +67,12 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="MainClass.cs" />
+    <Compile Include="Model\frmBillList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\frmBillList.Designer.cs">
+      <DependentUpon>frmBillList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\frmCategoryAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,12 @@
     <Compile Include="Model\frmOrder.Designer.cs">
       <DependentUpon>frmOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\frmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\frmPayment.Designer.cs">
+      <DependentUpon>frmPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\frmStaffAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,12 +114,6 @@
     </Compile>
     <Compile Include="Model\frmTableSelect.Designer.cs">
       <DependentUpon>frmTableSelect.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model\frmTestOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Model\frmTestOrder.Designer.cs">
-      <DependentUpon>frmTestOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\frmWaiterSelect.cs">
       <SubType>Form</SubType>
@@ -183,6 +189,9 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Model\frmBillList.resx">
+      <DependentUpon>frmBillList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model\frmCategoryAdd.resx">
       <DependentUpon>frmCategoryAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Model\frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\frmPayment.resx">
+      <DependentUpon>frmPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model\frmStaffAdd.resx">
       <DependentUpon>frmStaffAdd.cs</DependentUpon>
@@ -365,6 +377,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-restaurant-table-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-payment-50.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

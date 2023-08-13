@@ -25,21 +25,7 @@ namespace Order_Management_System.View
         {
             GetOrders();
         }
-        //private bool IsMainIDAlreadyAdded(int mainID)
-        //{
-        //    foreach (Control control in flowLayoutPanel1.Controls)
-        //    {
-        //        if (control is FlowLayoutPanel p1)
-        //        {
-        //            int addedMainID = Convert.ToInt32(p1.Tag);
-        //            if (addedMainID == mainID)
-        //            {
-        //                return true;
-        //            }
-        //        }
-        //    }
-        //    return false;
-        //}
+
         private void GetOrders()
         {
             flowLayoutPanel1.Controls.Clear();
@@ -179,7 +165,7 @@ namespace Order_Management_System.View
             guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Question;
             guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
 
-            if (guna2MessageDialog1.Show("Bạn có chắc chắn muốn xóa không?") == DialogResult.Yes)
+            if (guna2MessageDialog1.Show("Xác nhận đã hoàn thành order?") == DialogResult.Yes)
             {
                 string qry = @"Update tblMain set  status = 'Hoàn thành' where MainID = @ID ";
                 Hashtable ht = new Hashtable();

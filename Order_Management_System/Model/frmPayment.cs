@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Order_Management_System.Model
 {
-    public partial class frmTestOrder : Form
+    public partial class frmPayment : Form
     {
-        public frmTestOrder()
+        public frmPayment()
         {
             InitializeComponent();
         }

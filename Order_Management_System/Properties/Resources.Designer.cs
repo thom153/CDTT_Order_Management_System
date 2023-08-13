@@ -233,6 +233,16 @@ namespace Order_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_payment_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-payment-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_product_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-product-48", resourceCulture);

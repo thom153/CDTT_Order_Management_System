@@ -252,6 +252,7 @@ namespace Order_Management_System.Model
             }
 
             SaveOrderToDatabase();
+            guna2MessageDialog1.Show("Lưu thành công!");
 
             // Reset dữ liệu sau khi gửi
             ResetOrderData();
@@ -265,7 +266,7 @@ namespace Order_Management_System.Model
             }
             else
             {
-                guna2MessageDialog1.Show("Chưa có bản ghi nào để lưu!");
+                guna2MessageDialog2.Show("Chưa có bản ghi nào để lưu!");
             }
         }
 
@@ -363,7 +364,7 @@ namespace Order_Management_System.Model
                 }
                 catch (Exception ex)
                 {
-                    guna2MessageDialog1.Show("Lỗi xảy ra khi thêm đơn hàng: " + ex.Message);
+                    guna2MessageDialog1.Show("Lỗi xảy ra khi thêm Order: " + ex.Message);
                     return 0;
                 }
                 finally
@@ -393,7 +394,7 @@ namespace Order_Management_System.Model
                 }
                 catch (Exception ex)
                 {
-                    guna2MessageDialog1.Show("Lỗi xảy ra khi cập nhật đơn hàng: " + ex.Message);
+                    guna2MessageDialog1.Show("Lỗi xảy ra khi cập nhật Order: " + ex.Message);
                 }
                 finally
                 {
@@ -422,7 +423,7 @@ namespace Order_Management_System.Model
                 }
                 catch (Exception ex)
                 {
-                    guna2MessageDialog1.Show("Lỗi xảy ra khi thêm chi tiết đơn hàng: " + ex.Message);
+                    guna2MessageDialog1.Show("Lỗi xảy ra khi thêm chi tiết Order: " + ex.Message);
                 }
                 finally
                 {
@@ -463,13 +464,61 @@ namespace Order_Management_System.Model
         private void ResetOrderData()
         {
             // Reset dữ liệu trên form sau khi gửi bếp
-            lblTable1.Text = "Bàn số: ";
-            lblWaiter.Text = "Nhân viên: ";
+            //lblTable1.Text = "Bàn số: ";
+            //lblWaiter.Text = "Nhân viên: ";
+            lblTable1.Visible = false;
+            lblWaiter.Visible = false;
             lblTotal.Text = "0.00";
             isDineInSelected = false;
             guna2DataGridView2.Rows.Clear();
         }
 
+        public int id = 0;
+        private void btnBill1_Click(object sender, EventArgs e)
+        {
+            frmBillList frm = new frmBillList();
+            MainClass.BlurBackground(frm);
+
+            if(frm.MainID > 0)
+            {
+                id = frm.MainID;
+                LoadEntries();
+            }    
+        }
+
+        private void LoadEntries()
+        {
+            string qry = @"SELECT *
+                                       FROM tblMain m
+                                       INNER JOIN tblDetails d ON m.MainID = d.MainID
+                                       INNER JOIN Items i ON i.itemID = d.itemmID
+                                       where m.MainID = " + id + "";
+            SqlCommand cmd2 = new SqlCommand(qry, MainClass.con);
+            DataTable dt2 = new DataTable();
+            SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
+            da2.Fill(dt2);
+
+            guna2DataGridView2.Rows.Clear();
+
+            foreach(DataRow item in dt2.Rows)
+            {
+                string detailid = item["DetailID"].ToString();
+                string iname = item["iName"].ToString();
+                string itemid = item["itemmID"].ToString();
+                string qty = item["qty"].ToString();
+                string price = item["price"].ToString();
+                string amount = item["amount"].ToString();
+
+                object[] obj = {0, detailid, itemid,iname, qty, price, amount};
+                guna2DataGridView2.Rows.Add(obj);
+            }
+            GetTotal();
+        }
+
+        private void btnPayment_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 } 
 
