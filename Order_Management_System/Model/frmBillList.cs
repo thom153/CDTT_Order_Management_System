@@ -25,8 +25,9 @@ namespace Order_Management_System.Model
 
         private void LoadData()
         {
-            string qry = "select MainID, TableName, WaiterName, status, total from tblMain " +
-                " where status <> 'Đang chờ' ";
+            //string qry = "select MainID, TableName, WaiterName, status, total from tblMain " +
+            //    " where status <> 'Đã gửi bếp' ";
+            string qry = "select MainID, TableName, WaiterName, status, total from tblMain ";
             ListBox lb = new ListBox();
             lb.Items.Add(dgvid);
             lb.Items.Add(dgvtable);

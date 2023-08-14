@@ -45,9 +45,11 @@ namespace Order_Management_System.Model
             {
                 guna2MessageDialog1.Show("Lưu thành công!");
                 id = 0;
-                txtName.Focus();
-                txtChair.Focus();
+                txtName.Text = "";
+                txtChair.Text = "";
+                cbstatus.SelectedIndex = 0;
                 cbstatus.SelectedIndex = -1;
+                txtName.Focus();
             }
         }
 

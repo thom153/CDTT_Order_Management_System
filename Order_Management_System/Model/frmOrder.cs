@@ -33,7 +33,7 @@ namespace Order_Management_System.Model
             guna2DataGridView2.BorderStyle = BorderStyle.FixedSingle;
             AddCategory();
 
-            ItemPanel.Controls.Clear(); 
+            ItemPanel.Controls.Clear();
             LoadItems();
         }
 
@@ -85,16 +85,16 @@ namespace Order_Management_System.Model
                 txtSearch.Text = "";
                 return;
 
-            }    
-            foreach(var item in ItemPanel.Controls)
+            }
+            foreach (var item in ItemPanel.Controls)
             {
                 var pro = (ucItem)item;
                 pro.Visible = pro.iCategory.ToLower().Contains(b.Text.Trim().ToLower());
-            }    
+            }
         }
 
 
-        private void AddItems(string id,string itemmID, string name, string cat, string price, Image iImage)
+        private void AddItems(string id, string itemmID, string name, string cat, string price, Image iImage)
         {
             var w = new ucItem()
             {
@@ -129,17 +129,48 @@ namespace Order_Management_System.Model
                     existingRow.Cells["dgvAmount"].Value = int.Parse(existingRow.Cells["dgvQty"].Value.ToString()) *
                                                                double.Parse(existingRow.Cells["dgvPrice"].Value.ToString());
                 }
-                else 
+                else
                 {
                     //add new item first for STT and 2nd 0 ffrom id
-                    guna2DataGridView2.Rows.Add(new object[] {0,0, wdg.id, wdg.iName, 1, wdg.iPrice, wdg.iPrice });
+                    guna2DataGridView2.Rows.Add(new object[] { 0, 0, wdg.id, wdg.iName, 1, wdg.iPrice, wdg.iPrice });
                 }
 
                 GetTotal();
 
             };
         }
+        private void guna2DataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (guna2DataGridView2.CurrentCell.OwningColumn.Name == "dgvDel")
+            {
+                guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Question;
+                guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
 
+                if (guna2MessageDialog1.Show("Bạn có chắc chắn muốn xóa không?") == DialogResult.Yes)
+                {
+                    int id = Convert.ToInt32(guna2DataGridView2.CurrentRow.Cells["dgvid"].Value);
+                    string qry = "Delete from category where catID = " + id + "";
+                    Hashtable ht = new Hashtable();
+                    MainClass.SQL(qry, ht);
+
+                    guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+                    guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+
+                    guna2MessageDialog1.Show("Đã xóa thành công!");
+                    UpdateDataGridViewAfterDelete();
+                }
+            }
+        }
+
+
+        private void UpdateDataGridViewAfterDelete()
+        {
+            int rowIndex = guna2DataGridView2.CurrentRow.Index;
+            guna2DataGridView2.Rows.RemoveAt(rowIndex);
+
+            // Gọi hàm GetTotal() để cập nhật tổng giá trị
+            GetTotal();
+        }
         //Getting item from database 
         private void LoadItems()
         {
@@ -161,7 +192,7 @@ namespace Order_Management_System.Model
                 // Format the price with 3 zeros after the integer part
                 string formattedPrice = (iPrice * 1000).ToString("N0");
 
-                AddItems("0",item["itemID"].ToString(), item["iName"].ToString(), item["catName"].ToString(),
+                AddItems("0", item["itemID"].ToString(), item["iName"].ToString(), item["catName"].ToString(),
                     formattedPrice, Image.FromStream(new MemoryStream(imagearray)));
             }
         }
@@ -169,11 +200,11 @@ namespace Order_Management_System.Model
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            foreach(var item in ItemPanel.Controls)
+            foreach (var item in ItemPanel.Controls)
             {
                 var pro = (ucItem)item;
                 pro.Visible = pro.iName.ToLower().Contains(txtSearch.Text.Trim().ToLower());
-            }    
+            }
         }
 
         private void guna2DataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -242,7 +273,6 @@ namespace Order_Management_System.Model
                 lblWaiter.Visible = false;
             }
         }
-
         private void btnKoTT_Click(object sender, EventArgs e)
         {
             if (!isDineInSelected)
@@ -250,8 +280,7 @@ namespace Order_Management_System.Model
                 guna2MessageDialog2.Show("Vui lòng chọn bàn và NVPV trước khi gửi bếp.");
                 return;
             }
-
-            SaveOrderToDatabase();
+            SaveOrderToDatabase("Đã gửi bếp"); // Truyền trạng thái "Đã gửi bếp"
             guna2MessageDialog1.Show("Lưu thành công!");
 
             // Reset dữ liệu sau khi gửi
@@ -260,61 +289,27 @@ namespace Order_Management_System.Model
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (MainID > 0) // Chỉ lưu khi có MainID
+            if (!isDineInSelected)
             {
-                UpdateOrderStatus("Đã lưu");
+                guna2MessageDialog2.Show("Vui lòng chọn bàn và NVPV trước khi gửi bếp.");
+                return;
             }
-            else
-            {
-                guna2MessageDialog2.Show("Chưa có bản ghi nào để lưu!");
-            }
+            SaveOrderToDatabase("Đã lưu"); // Truyền trạng thái "Đã lưu"
+            guna2MessageDialog1.Show("Lưu thành công!");
+
+            // Reset dữ liệu sau khi gửi
+            ResetOrderData();
         }
 
-        private void UpdateOrderStatus(string newStatus)
-        {
-            string updateStatusQuery = "UPDATE tblMain SET status = @status WHERE MainID = @ID";
-
-            using (SqlCommand cmd = new SqlCommand(updateStatusQuery, MainClass.con))
-            {
-                cmd.Parameters.AddWithValue("@ID", MainID);
-                cmd.Parameters.AddWithValue("@status", newStatus);
-
-                try
-                {
-                    if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
-                    cmd.ExecuteNonQuery();
-                    guna2MessageDialog1.Show("Cập nhật trạng thái thành công!");
-
-                    // Kiểm tra trạng thái sau cập nhật
-                    string checkStatusQuery = "SELECT status FROM tblMain WHERE MainID = @ID";
-
-                    using (SqlCommand checkCmd = new SqlCommand(checkStatusQuery, MainClass.con))
-                    {
-                        checkCmd.Parameters.AddWithValue("@ID", MainID);
-                        string status = checkCmd.ExecuteScalar().ToString();
-                        MessageBox.Show("Trạng thái của MainID " + MainID + ": " + status);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    guna2MessageDialog1.Show("Lỗi xảy ra: " + ex.Message);
-                }
-                finally
-                {
-                    if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
-                }
-            }
-        }
-
-        private void SaveOrderToDatabase()
+        private void SaveOrderToDatabase(string status)
         {
             if (MainID == 0) //Insert
             {
-                MainID = InsertMainRecord();
+                MainID = InsertMainRecord(status); // Truyền trạng thái vào hàm InsertMainRecord
             }
             else //Update
             {
-                UpdateMainRecord();
+                UpdateMainRecord(status); // Truyền trạng thái vào hàm UpdateMainRecord
             }
 
             // Lưu chi tiết đơn hàng
@@ -340,11 +335,11 @@ namespace Order_Management_System.Model
             }
         }
 
-        private int InsertMainRecord()
+        private int InsertMainRecord(string status)
         {
             string insertQuery = @"INSERT INTO tblMain (aDate, aTime, TableName, WaiterName, status, total, received, change) 
-                                   VALUES (@aDate, @aTime, @TableName, @WaiterName, @status, @total, @received, @change);
-                                   SELECT SCOPE_IDENTITY();";
+                           VALUES (@aDate, @aTime, @TableName, @WaiterName, @status, @total, @received, @change);
+                           SELECT SCOPE_IDENTITY();";
 
             using (SqlCommand cmd = new SqlCommand(insertQuery, MainClass.con))
             {
@@ -352,7 +347,7 @@ namespace Order_Management_System.Model
                 cmd.Parameters.AddWithValue("@aTime", DateTime.Now.ToShortTimeString());
                 cmd.Parameters.AddWithValue("@TableName", lblTable1.Text);
                 cmd.Parameters.AddWithValue("@WaiterName", lblWaiter.Text);
-                cmd.Parameters.AddWithValue("@status", "Đang chờ");
+                cmd.Parameters.AddWithValue("@status", status); // Truyền trạng thái vào tham số status
                 cmd.Parameters.AddWithValue("@total", Convert.ToDouble(lblTotal.Text));
                 cmd.Parameters.AddWithValue("@received", Convert.ToDouble(0));
                 cmd.Parameters.AddWithValue("@change", Convert.ToDouble(0));
@@ -374,15 +369,15 @@ namespace Order_Management_System.Model
             }
         }
 
-        private void UpdateMainRecord()
+        private void UpdateMainRecord(string status)
         {
             string updateQuery = @"UPDATE tblMain SET status = @status, total = @total, received = @received, change = @change 
-                                   WHERE MainID = @ID";
+                           WHERE MainID = @ID";
 
             using (SqlCommand cmd = new SqlCommand(updateQuery, MainClass.con))
             {
                 cmd.Parameters.AddWithValue("@ID", MainID);
-                cmd.Parameters.AddWithValue("@status", "Đang chờ");
+                cmd.Parameters.AddWithValue("@status", status); // Truyền trạng thái vào tham số status
                 cmd.Parameters.AddWithValue("@total", Convert.ToDouble(lblTotal.Text));
                 cmd.Parameters.AddWithValue("@received", Convert.ToDouble(0));
                 cmd.Parameters.AddWithValue("@change", Convert.ToDouble(0));
@@ -402,6 +397,7 @@ namespace Order_Management_System.Model
                 }
             }
         }
+
 
         private void InsertDetailRecord(int mainID, int itemID, int quantity, double price, double amount)
         {
@@ -474,17 +470,19 @@ namespace Order_Management_System.Model
         }
 
         public int id = 0;
+
         private void btnBill1_Click(object sender, EventArgs e)
         {
             frmBillList frm = new frmBillList();
             MainClass.BlurBackground(frm);
 
-            if(frm.MainID > 0)
+            if (frm.MainID > 0)
             {
                 id = frm.MainID;
                 LoadEntries();
-            }    
+            }
         }
+
 
         private void LoadEntries()
         {
@@ -498,10 +496,17 @@ namespace Order_Management_System.Model
             SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
             da2.Fill(dt2);
 
+            //btnDinein.Checked = true;
+            //lblTable1.Visible = true;
+            //lblWaiter.Visible = true;
+
             guna2DataGridView2.Rows.Clear();
 
-            foreach(DataRow item in dt2.Rows)
+            foreach (DataRow item in dt2.Rows)
             {
+                lblTable1.Text = item["TableName"].ToString();
+                lblWaiter.Text = item["WaiterName"].ToString();
+
                 string detailid = item["DetailID"].ToString();
                 string iname = item["iName"].ToString();
                 string itemid = item["itemmID"].ToString();
@@ -509,7 +514,7 @@ namespace Order_Management_System.Model
                 string price = item["price"].ToString();
                 string amount = item["amount"].ToString();
 
-                object[] obj = {0, detailid, itemid,iname, qty, price, amount};
+                object[] obj = { 0, detailid, itemid, iname, qty, price, amount };
                 guna2DataGridView2.Rows.Add(obj);
             }
             GetTotal();
@@ -518,7 +523,76 @@ namespace Order_Management_System.Model
         private void btnPayment_Click(object sender, EventArgs e)
         {
 
+            frmPayment frm = new frmPayment();
+            frm.MainID = id;
+            frm.amt = Convert.ToDouble(lblTotal.Text);
+            MainClass.BlurBackground(frm);
+
+            MainID = 0;
+            guna2DataGridView2.Rows.Clear();
+            lblTable1.Text = "";
+            lblWaiter.Text = " ";
+            lblTable1.Visible = false;
+            lblWaiter.Visible = false;
+            lblTotal.Text = "00";
+
         }
+
+        //private void btnPayment_Click(object sender, EventArgs e)
+        //{
+        //    if (MainID > 0)
+        //    {
+        //        string checkStatusQuery = "SELECT status FROM tblMain WHERE MainID = @MainID";
+
+        //        using (SqlCommand checkCmd = new SqlCommand(checkStatusQuery, MainClass.con))
+        //        {
+        //            checkCmd.Parameters.AddWithValue("@MainID", MainID);
+
+        //            try
+        //            {
+        //                if (MainClass.con.State == ConnectionState.Closed)
+        //                {
+        //                    MainClass.con.Open();
+        //                }
+
+        //                string status = checkCmd.ExecuteScalar().ToString();
+
+        //                if (status == "Hoàn thành")
+        //                {
+        //                    frmPayment frm = new frmPayment();
+        //                    frm.MainID = id;
+        //                    frm.amt = Convert.ToDouble(lblTotal.Text);
+        //                    MainClass.BlurBackground(frm);
+
+        //                    MainID = 0;
+        //                    guna2DataGridView2.Rows.Clear();
+        //                    lblTable1.Text = "";
+        //                    lblWaiter.Text = " ";
+        //                    lblTable1.Visible = false;
+        //                    lblWaiter.Visible = false;
+        //                    lblTotal.Text = "00";
+        //                }
+        //                else
+        //                {
+        //                    guna2MessageDialog2.Show("Chỉ cho phép thanh toán với Order đã hoàn thành.");
+        //                }
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                guna2MessageDialog1.Show("Lỗi khi kiểm tra trạng thái: " + ex.Message);
+        //            }
+        //            finally
+        //            {
+        //                if (MainClass.con.State == ConnectionState.Open)
+        //                {
+        //                    MainClass.con.Close();
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
+
     }
 } 
 

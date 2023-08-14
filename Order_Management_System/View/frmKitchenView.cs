@@ -29,7 +29,8 @@ namespace Order_Management_System.View
         private void GetOrders()
         {
             flowLayoutPanel1.Controls.Clear();
-            string qry1 = @"Select * from tblMain where status = 'Đang chờ'";
+            string qry1 = @"Select * from tblMain where status = N'Đã gửi bếp'";
+            //string qry1 = @"Select * from tblMain";
             SqlCommand cmd1 = new SqlCommand(qry1, MainClass.con);
             DataTable dt1 = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd1);

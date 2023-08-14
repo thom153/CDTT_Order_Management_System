@@ -47,11 +47,14 @@ namespace Order_Management_System.Model
             {
                 guna2MessageDialog1.Show("Lưu thành công!");
                 id = 0;
-                txtName.Focus();
+                txtName.Text = "";
+                cbGender.SelectedIndex = 0;
                 cbGender.SelectedIndex = -1;
-                txtPhone.Focus();
-                txtAddress.Focus();
+                txtPhone.Text = "";
+                txtAddress.Text = "";
+                cbRole.SelectedIndex = 0;
                 cbRole.SelectedIndex = -1;
+                txtName.Focus();
 
             }
         }
