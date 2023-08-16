@@ -49,6 +49,7 @@ namespace Order_Management_System.View
             this.dgvUnitCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvcat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvcatID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvIsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dgvedit = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvDel = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
@@ -98,6 +99,7 @@ namespace Order_Management_System.View
             // 
             this.guna2DataGridView1.AllowUserToAddRows = false;
             this.guna2DataGridView1.AllowUserToDeleteRows = false;
+            this.guna2DataGridView1.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.guna2DataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -121,6 +123,7 @@ namespace Order_Management_System.View
             this.dgvUnitCost,
             this.dgvcat,
             this.dgvcatID,
+            this.dgvIsActive,
             this.dgvedit,
             this.dgvDel});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -163,6 +166,7 @@ namespace Order_Management_System.View
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellClick);
+            this.guna2DataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellValueChanged);
             // 
             // dataGridViewImageColumn1
             // 
@@ -269,6 +273,7 @@ namespace Order_Management_System.View
             // 
             // dgvcat
             // 
+            this.dgvcat.FillWeight = 70F;
             this.dgvcat.HeaderText = "Nhóm món";
             this.dgvcat.MinimumWidth = 8;
             this.dgvcat.Name = "dgvcat";
@@ -276,17 +281,28 @@ namespace Order_Management_System.View
             // 
             // dgvcatID
             // 
+            this.dgvcatID.FillWeight = 50F;
             this.dgvcatID.HeaderText = "catID";
             this.dgvcatID.MinimumWidth = 8;
             this.dgvcatID.Name = "dgvcatID";
             this.dgvcatID.ReadOnly = true;
             this.dgvcatID.Visible = false;
             // 
+            // dgvIsActive
+            // 
+            this.dgvIsActive.FillWeight = 50F;
+            this.dgvIsActive.HeaderText = "Trạng thái";
+            this.dgvIsActive.MinimumWidth = 8;
+            this.dgvIsActive.Name = "dgvIsActive";
+            this.dgvIsActive.ReadOnly = true;
+            this.dgvIsActive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIsActive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // dgvedit
             // 
             this.dgvedit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dgvedit.FillWeight = 50F;
-            this.dgvedit.HeaderText = "";
+            this.dgvedit.HeaderText = "edit";
             this.dgvedit.Image = global::Order_Management_System.Properties.Resources.icons8_edit_64;
             this.dgvedit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dgvedit.MinimumWidth = 50;
@@ -298,7 +314,7 @@ namespace Order_Management_System.View
             // 
             this.dgvDel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dgvDel.FillWeight = 50F;
-            this.dgvDel.HeaderText = "";
+            this.dgvDel.HeaderText = "del";
             this.dgvDel.Image = global::Order_Management_System.Properties.Resources.icons8_delete_64;
             this.dgvDel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dgvDel.MinimumWidth = 50;
@@ -348,6 +364,7 @@ namespace Order_Management_System.View
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvUnitCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvcat;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvcatID;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dgvIsActive;
         private System.Windows.Forms.DataGridViewImageColumn dgvedit;
         private System.Windows.Forms.DataGridViewImageColumn dgvDel;
     }

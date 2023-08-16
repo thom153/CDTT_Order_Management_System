@@ -46,6 +46,7 @@ namespace Order_Management_System.Model
             this.label4 = new System.Windows.Forms.Label();
             this.btnBrowse = new Guna.UI2.WinForms.Guna2Button();
             this.txtImage = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.chkIsActive = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -64,7 +65,7 @@ namespace Order_Management_System.Model
             this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPrice.Location = new System.Drawing.Point(43, 396);
+            this.txtPrice.Location = new System.Drawing.Point(38, 417);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.PasswordChar = '\0';
@@ -76,7 +77,7 @@ namespace Order_Management_System.Model
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(39, 348);
+            this.label5.Location = new System.Drawing.Point(34, 369);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 28);
@@ -93,7 +94,7 @@ namespace Order_Management_System.Model
             this.cbCat.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbCat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbCat.ItemHeight = 30;
-            this.cbCat.Location = new System.Drawing.Point(368, 245);
+            this.cbCat.Location = new System.Drawing.Point(359, 292);
             this.cbCat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbCat.Name = "cbCat";
             this.cbCat.Size = new System.Drawing.Size(308, 36);
@@ -111,7 +112,7 @@ namespace Order_Management_System.Model
             this.txtUnitCost.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtUnitCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtUnitCost.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUnitCost.Location = new System.Drawing.Point(367, 396);
+            this.txtUnitCost.Location = new System.Drawing.Point(362, 417);
             this.txtUnitCost.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.txtUnitCost.Name = "txtUnitCost";
             this.txtUnitCost.PasswordChar = '\0';
@@ -200,19 +201,19 @@ namespace Order_Management_System.Model
             this.txtName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtName.Location = new System.Drawing.Point(44, 245);
+            this.txtName.Location = new System.Drawing.Point(39, 292);
             this.txtName.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.txtName.Name = "txtName";
             this.txtName.PasswordChar = '\0';
             this.txtName.PlaceholderText = "";
             this.txtName.SelectedText = "";
-            this.txtName.Size = new System.Drawing.Size(280, 51);
+            this.txtName.Size = new System.Drawing.Size(279, 36);
             this.txtName.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 203);
+            this.label2.Location = new System.Drawing.Point(34, 250);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 28);
@@ -254,7 +255,7 @@ namespace Order_Management_System.Model
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(366, 203);
+            this.label3.Location = new System.Drawing.Point(357, 250);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 28);
@@ -264,7 +265,7 @@ namespace Order_Management_System.Model
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(365, 348);
+            this.label4.Location = new System.Drawing.Point(360, 369);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 28);
@@ -281,7 +282,7 @@ namespace Order_Management_System.Model
             this.btnBrowse.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnBrowse.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnBrowse.ForeColor = System.Drawing.Color.White;
-            this.btnBrowse.Location = new System.Drawing.Point(764, 396);
+            this.btnBrowse.Location = new System.Drawing.Point(767, 411);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(152, 50);
             this.btnBrowse.TabIndex = 8;
@@ -292,7 +293,7 @@ namespace Order_Management_System.Model
             // 
             this.txtImage.Image = global::Order_Management_System.Properties.Resources.icons8_meal_100;
             this.txtImage.ImageRotate = 0F;
-            this.txtImage.Location = new System.Drawing.Point(730, 169);
+            this.txtImage.Location = new System.Drawing.Point(733, 184);
             this.txtImage.Name = "txtImage";
             this.txtImage.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.txtImage.Size = new System.Drawing.Size(206, 207);
@@ -300,12 +301,30 @@ namespace Order_Management_System.Model
             this.txtImage.TabIndex = 31;
             this.txtImage.TabStop = false;
             // 
+            // chkIsActive
+            // 
+            this.chkIsActive.AutoSize = true;
+            this.chkIsActive.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkIsActive.CheckedState.BorderRadius = 0;
+            this.chkIsActive.CheckedState.BorderThickness = 0;
+            this.chkIsActive.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkIsActive.Location = new System.Drawing.Point(44, 184);
+            this.chkIsActive.Name = "chkIsActive";
+            this.chkIsActive.Size = new System.Drawing.Size(124, 32);
+            this.chkIsActive.TabIndex = 32;
+            this.chkIsActive.Text = "Trạng thái";
+            this.chkIsActive.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkIsActive.UncheckedState.BorderRadius = 0;
+            this.chkIsActive.UncheckedState.BorderThickness = 0;
+            this.chkIsActive.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
             // frmItemAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(989, 626);
+            this.Controls.Add(this.chkIsActive);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtImage);
             this.Controls.Add(this.txtPrice);
@@ -353,5 +372,6 @@ namespace Order_Management_System.Model
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2CirclePictureBox txtImage;
         private Guna.UI2.WinForms.Guna2Button btnBrowse;
+        private Guna.UI2.WinForms.Guna2CheckBox chkIsActive;
     }
 }

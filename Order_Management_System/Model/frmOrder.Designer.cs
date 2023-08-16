@@ -30,9 +30,9 @@ namespace Order_Management_System.Model
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrder));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
@@ -83,6 +83,10 @@ namespace Order_Management_System.Model
             this.CategoryPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.ItemPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.ucItem4 = new Order_Management_System.Model.ucItem();
+            this.ucItem2 = new Order_Management_System.Model.ucItem();
+            this.ucItem1 = new Order_Management_System.Model.ucItem();
+            this.ucItem3 = new Order_Management_System.Model.ucItem();
             this.guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dgvSno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,10 +101,6 @@ namespace Order_Management_System.Model
             this.guna2MessageDialog3 = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.ucItem4 = new Order_Management_System.Model.ucItem();
-            this.ucItem2 = new Order_Management_System.Model.ucItem();
-            this.ucItem1 = new Order_Management_System.Model.ucItem();
-            this.ucItem3 = new Order_Management_System.Model.ucItem();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
@@ -944,23 +944,73 @@ namespace Order_Management_System.Model
             this.ItemPanel.Name = "ItemPanel";
             this.ItemPanel.Size = new System.Drawing.Size(481, 376);
             this.ItemPanel.TabIndex = 3;
+           
+            // 
+            // ucItem4
+            // 
+            this.ucItem4.iCategory = null;
+            this.ucItem4.id = 0;
+            this.ucItem4.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem4.iImage")));
+            this.ucItem4.iName = "Tên món";
+            this.ucItem4.iPrice = null;
+            this.ucItem4.Location = new System.Drawing.Point(3, 3);
+            this.ucItem4.Name = "ucItem4";
+            this.ucItem4.Size = new System.Drawing.Size(212, 225);
+            this.ucItem4.TabIndex = 3;
+            // 
+            // ucItem2
+            // 
+            this.ucItem2.iCategory = null;
+            this.ucItem2.id = 0;
+            this.ucItem2.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem2.iImage")));
+            this.ucItem2.iName = "Tên món";
+            this.ucItem2.iPrice = null;
+            this.ucItem2.Location = new System.Drawing.Point(221, 3);
+            this.ucItem2.Name = "ucItem2";
+            this.ucItem2.Size = new System.Drawing.Size(212, 225);
+            this.ucItem2.TabIndex = 5;
+           
+            // 
+            // ucItem1
+            // 
+            this.ucItem1.iCategory = null;
+            this.ucItem1.id = 0;
+            this.ucItem1.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem1.iImage")));
+            this.ucItem1.iName = "Tên món";
+            this.ucItem1.iPrice = null;
+            this.ucItem1.Location = new System.Drawing.Point(3, 234);
+            this.ucItem1.Name = "ucItem1";
+            this.ucItem1.Size = new System.Drawing.Size(212, 225);
+            this.ucItem1.TabIndex = 6;
+            // 
+            // ucItem3
+            // 
+            this.ucItem3.iCategory = null;
+            this.ucItem3.id = 0;
+            this.ucItem3.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem3.iImage")));
+            this.ucItem3.iName = "Tên món";
+            this.ucItem3.iPrice = null;
+            this.ucItem3.Location = new System.Drawing.Point(221, 234);
+            this.ucItem3.Name = "ucItem3";
+            this.ucItem3.Size = new System.Drawing.Size(212, 225);
+            this.ucItem3.TabIndex = 7;
             // 
             // guna2DataGridView2
             // 
             this.guna2DataGridView2.AllowUserToAddRows = false;
             this.guna2DataGridView2.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.guna2DataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.guna2DataGridView2.ColumnHeadersHeight = 50;
             this.guna2DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.guna2DataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -972,14 +1022,14 @@ namespace Order_Management_System.Model
             this.dgvPrice,
             this.dgvAmount,
             this.dgvDel});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle6;
             this.guna2DataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView2.Location = new System.Drawing.Point(647, 168);
             this.guna2DataGridView2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1139,54 +1189,6 @@ namespace Order_Management_System.Model
             this.txtSearch.Size = new System.Drawing.Size(386, 37);
             this.txtSearch.TabIndex = 18;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // ucItem4
-            // 
-            this.ucItem4.iCategory = null;
-            this.ucItem4.id = 0;
-            this.ucItem4.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem4.iImage")));
-            this.ucItem4.iName = "Tên món";
-            this.ucItem4.iPrice = null;
-            this.ucItem4.Location = new System.Drawing.Point(3, 3);
-            this.ucItem4.Name = "ucItem4";
-            this.ucItem4.Size = new System.Drawing.Size(212, 225);
-            this.ucItem4.TabIndex = 3;
-            // 
-            // ucItem2
-            // 
-            this.ucItem2.iCategory = null;
-            this.ucItem2.id = 0;
-            this.ucItem2.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem2.iImage")));
-            this.ucItem2.iName = "Tên món";
-            this.ucItem2.iPrice = null;
-            this.ucItem2.Location = new System.Drawing.Point(221, 3);
-            this.ucItem2.Name = "ucItem2";
-            this.ucItem2.Size = new System.Drawing.Size(212, 225);
-            this.ucItem2.TabIndex = 5;
-            // 
-            // ucItem1
-            // 
-            this.ucItem1.iCategory = null;
-            this.ucItem1.id = 0;
-            this.ucItem1.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem1.iImage")));
-            this.ucItem1.iName = "Tên món";
-            this.ucItem1.iPrice = null;
-            this.ucItem1.Location = new System.Drawing.Point(3, 234);
-            this.ucItem1.Name = "ucItem1";
-            this.ucItem1.Size = new System.Drawing.Size(212, 225);
-            this.ucItem1.TabIndex = 6;
-            // 
-            // ucItem3
-            // 
-            this.ucItem3.iCategory = null;
-            this.ucItem3.id = 0;
-            this.ucItem3.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem3.iImage")));
-            this.ucItem3.iName = "Tên món";
-            this.ucItem3.iPrice = null;
-            this.ucItem3.Location = new System.Drawing.Point(221, 234);
-            this.ucItem3.Name = "ucItem3";
-            this.ucItem3.Size = new System.Drawing.Size(212, 225);
-            this.ucItem3.TabIndex = 7;
             // 
             // frmOrder
             // 

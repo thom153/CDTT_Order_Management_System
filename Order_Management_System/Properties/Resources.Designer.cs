@@ -63,6 +63,16 @@ namespace Order_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _362234434_772360238226307_5589283237954808952_n {
+            get {
+                object obj = ResourceManager.GetObject("362234434_772360238226307_5589283237954808952_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap account_avatar_face_man_people_profile_user_icon_123197 {
             get {
                 object obj = ResourceManager.GetObject("account_avatar_face_man_people_profile_user_icon_123197", resourceCulture);
