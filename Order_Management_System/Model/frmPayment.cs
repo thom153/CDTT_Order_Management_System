@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -45,11 +46,68 @@ namespace Order_Management_System.Model
 
             if(MainClass.SQL(qry,ht)>0)
             {
+                UpdateTableStatusForPayment(MainID);
                 guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
                 guna2MessageDialog1.Show("Lưu thành công!");
                 this.Close();
             }    
         }
+
+        private void UpdateTableStatusForPayment(int mainID)
+        {
+            string query = "SELECT tableName FROM tblMain WHERE MainID = @id";
+
+            using (SqlCommand cmd = new SqlCommand(query, MainClass.con))
+            {
+                cmd.Parameters.AddWithValue("@id", mainID);
+
+                try
+                {
+                    if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        string tableName = result.ToString();
+                        // Gọi hàm cập nhật trạng thái của bàn ở đây
+                        UpdateTableStatus(tableName, "Trống");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi xảy ra khi cập nhật trạng thái bàn: " + ex.Message);
+                }
+                finally
+                {
+                    if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+                }
+            }
+        }
+
+        private void UpdateTableStatus(string tableName, string status)
+        {
+            string updateQuery = "UPDATE tables SET tStatus = @status WHERE tName = @tableName";
+
+            using (SqlCommand cmd = new SqlCommand(updateQuery, MainClass.con))
+            {
+                cmd.Parameters.AddWithValue("@status", status);
+                cmd.Parameters.AddWithValue("@tableName", tableName);
+
+                try
+                {
+                    if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi xảy ra khi cập nhật trạng thái bàn: " + ex.Message);
+                }
+                finally
+                {
+                    if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+                }
+            }
+        }
+
 
         private void frmPayment_Load(object sender, EventArgs e)
         {

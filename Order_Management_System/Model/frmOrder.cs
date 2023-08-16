@@ -174,7 +174,7 @@ namespace Order_Management_System.Model
         //Getting item from database 
         private void LoadItems()
         {
-            string qry = "Select * from Items inner join Category on catID = categoryID ";
+            string qry = "Select * from Items inner join Category on catID = categoryID where IsActive = 1 ";
             SqlCommand cmd = new SqlCommand(qry, MainClass.con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -250,7 +250,6 @@ namespace Order_Management_System.Model
             MainClass.BlurBackground(frm);
             if (frm.TableName != "")
             {
-                //lblTable1.Text = frm.TableName.Split('\n')[0];
                 lblTable1.Text = frm.TableName;
                 lblTable1.Visible = true;
             }
@@ -300,7 +299,7 @@ namespace Order_Management_System.Model
             // Reset dữ liệu sau khi gửi
             ResetOrderData();
         }
-
+        
         private void SaveOrderToDatabase(string status)
         {
             if (MainID == 0) //Insert
@@ -333,6 +332,7 @@ namespace Order_Management_System.Model
                     }
                 }
             }
+   
         }
 
         private int InsertMainRecord(string status)
@@ -460,8 +460,6 @@ namespace Order_Management_System.Model
         private void ResetOrderData()
         {
             // Reset dữ liệu trên form sau khi gửi bếp
-            //lblTable1.Text = "Bàn số: ";
-            //lblWaiter.Text = "Nhân viên: ";
             lblTable1.Visible = false;
             lblWaiter.Visible = false;
             lblTotal.Text = "0.00";
@@ -495,10 +493,6 @@ namespace Order_Management_System.Model
             DataTable dt2 = new DataTable();
             SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
             da2.Fill(dt2);
-
-            //btnDinein.Checked = true;
-            //lblTable1.Visible = true;
-            //lblWaiter.Visible = true;
 
             guna2DataGridView2.Rows.Clear();
 
@@ -537,61 +531,6 @@ namespace Order_Management_System.Model
             lblTotal.Text = "00";
 
         }
-
-        //private void btnPayment_Click(object sender, EventArgs e)
-        //{
-        //    if (MainID > 0)
-        //    {
-        //        string checkStatusQuery = "SELECT status FROM tblMain WHERE MainID = @MainID";
-
-        //        using (SqlCommand checkCmd = new SqlCommand(checkStatusQuery, MainClass.con))
-        //        {
-        //            checkCmd.Parameters.AddWithValue("@MainID", MainID);
-
-        //            try
-        //            {
-        //                if (MainClass.con.State == ConnectionState.Closed)
-        //                {
-        //                    MainClass.con.Open();
-        //                }
-
-        //                string status = checkCmd.ExecuteScalar().ToString();
-
-        //                if (status == "Hoàn thành")
-        //                {
-        //                    frmPayment frm = new frmPayment();
-        //                    frm.MainID = id;
-        //                    frm.amt = Convert.ToDouble(lblTotal.Text);
-        //                    MainClass.BlurBackground(frm);
-
-        //                    MainID = 0;
-        //                    guna2DataGridView2.Rows.Clear();
-        //                    lblTable1.Text = "";
-        //                    lblWaiter.Text = " ";
-        //                    lblTable1.Visible = false;
-        //                    lblWaiter.Visible = false;
-        //                    lblTotal.Text = "00";
-        //                }
-        //                else
-        //                {
-        //                    guna2MessageDialog2.Show("Chỉ cho phép thanh toán với Order đã hoàn thành.");
-        //                }
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                guna2MessageDialog1.Show("Lỗi khi kiểm tra trạng thái: " + ex.Message);
-        //            }
-        //            finally
-        //            {
-        //                if (MainClass.con.State == ConnectionState.Open)
-        //                {
-        //                    MainClass.con.Close();
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
 
     }
 } 
