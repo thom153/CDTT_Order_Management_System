@@ -41,6 +41,7 @@ namespace Order_Management_System.Model
             {
                 guna2MessageDialog1.Show("Lưu thành công!");
                 id = 0;
+                txtName.Text = "";
                 txtName.Focus();
             }
         }
