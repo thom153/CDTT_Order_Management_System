@@ -58,7 +58,7 @@ namespace Order_Management_System.Model
                 this.Close();
 
             }
-            
+
         }
     }
 }

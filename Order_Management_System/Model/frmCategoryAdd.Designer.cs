@@ -126,7 +126,7 @@ namespace Order_Management_System.Model
             this.btnSave.Size = new System.Drawing.Size(84, 33);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Lưu";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
             // label2
             // 

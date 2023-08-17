@@ -1,4 +1,5 @@
 ﻿
+using Order_Management_System.View;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ namespace Order_Management_System.Model
             CategoryPanel.Controls.Clear();
             Guna.UI2.WinForms.Guna2Button b2 = new Guna.UI2.WinForms.Guna2Button();
             b2.FillColor = Color.FromArgb(128, 128, 255);
-            b2.Size = new Size(166, 57);
+            b2.Size = new Size(139, 57);
             b2.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             b2.Text = "Tất cả";
             b2.CheckedState.FillColor = Color.FromArgb(255, 128, 128);
@@ -60,8 +61,8 @@ namespace Order_Management_System.Model
                 foreach (DataRow row in dt.Rows)
                 {
                     Guna.UI2.WinForms.Guna2Button b = new Guna.UI2.WinForms.Guna2Button();
-                    b.FillColor = Color.FromArgb(28, 128, 255);
-                    b.Size = new Size(166, 57);
+                    b.FillColor = Color.FromArgb(128, 128, 255);
+                    b.Size = new Size(139, 57);
                     b.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
                     b.Text = row["catName"].ToString();
                     b.CheckedState.FillColor = Color.FromArgb(255, 128, 128);
@@ -371,8 +372,8 @@ namespace Order_Management_System.Model
 
         private void UpdateMainRecord(string status)
         {
-            string updateQuery = @"UPDATE tblMain SET status = @status, total = @total, received = @received, change = @change 
-                           WHERE MainID = @ID";
+            string updateQuery = @"UPDATE tblMain SET status = @status, total = @total, received = @received, change = @change
+                                    WHERE MainID = @ID";
 
             using (SqlCommand cmd = new SqlCommand(updateQuery, MainClass.con))
             {
@@ -381,6 +382,8 @@ namespace Order_Management_System.Model
                 cmd.Parameters.AddWithValue("@total", Convert.ToDouble(lblTotal.Text));
                 cmd.Parameters.AddWithValue("@received", Convert.ToDouble(0));
                 cmd.Parameters.AddWithValue("@change", Convert.ToDouble(0));
+                //cmd.Parameters.AddWithValue("@TableName", lblTable1.Text);
+                //cmd.Parameters.AddWithValue("@WaiterName", lblWaiter.Text);
 
                 try
                 {
@@ -485,10 +488,10 @@ namespace Order_Management_System.Model
         private void LoadEntries()
         {
             string qry = @"SELECT *
-                                       FROM tblMain m
-                                       INNER JOIN tblDetails d ON m.MainID = d.MainID
-                                       INNER JOIN Items i ON i.itemID = d.itemmID
-                                       where m.MainID = " + id + "";
+                           FROM tblMain m
+                           INNER JOIN tblDetails d ON m.MainID = d.MainID
+                           INNER JOIN Items i ON i.itemID = d.itemmID
+                           where m.MainID = " + id + "";
             SqlCommand cmd2 = new SqlCommand(qry, MainClass.con);
             DataTable dt2 = new DataTable();
             SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
@@ -498,8 +501,8 @@ namespace Order_Management_System.Model
 
             foreach (DataRow item in dt2.Rows)
             {
-                lblTable1.Text = item["TableName"].ToString();
-                lblWaiter.Text = item["WaiterName"].ToString();
+                //lblTable1.Text = item["TableName"].ToString();
+                //lblWaiter.Text = item["WaiterName"].ToString();
 
                 string detailid = item["DetailID"].ToString();
                 string iname = item["iName"].ToString();
