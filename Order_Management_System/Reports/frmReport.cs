@@ -17,5 +17,10 @@ namespace Order_Management_System.Reports
             InitializeComponent();
         }
 
+        private void btnSalebymonth_Click(object sender, EventArgs e)
+        {
+            frmSalebymonth frm = new frmSalebymonth();
+            frm.ShowDialog();
+        }
     }
 }

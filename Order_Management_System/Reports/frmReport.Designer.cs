@@ -95,6 +95,7 @@ namespace Order_Management_System.Reports
             this.btnSalebymonth.Size = new System.Drawing.Size(334, 87);
             this.btnSalebymonth.TabIndex = 0;
             this.btnSalebymonth.Text = "Báo cáo bán hàng theo tháng";
+            this.btnSalebymonth.Click += new System.EventHandler(this.btnSalebymonth_Click);
             // 
             // btnVoidOrder
             // 

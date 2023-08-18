@@ -174,10 +174,22 @@
     <Compile Include="Reports\frmReport.Designer.cs">
       <DependentUpon>frmReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\rptBill.cs">
+    <Compile Include="Reports\frmSalebymonth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmSalebymonth.Designer.cs">
+      <DependentUpon>frmSalebymonth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBill1.cs">
+      <DependentUpon>rptBill1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\rptSalebymonth.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>rptBill.rpt</DependentUpon>
+      <DependentUpon>rptSalebymonth.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptBill.Designer.cs">
@@ -282,9 +294,16 @@
     <EmbeddedResource Include="Reports\frmReport.resx">
       <DependentUpon>frmReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\rptBill.rpt">
+    <EmbeddedResource Include="Reports\frmSalebymonth.resx">
+      <DependentUpon>frmSalebymonth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBill1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptBill.cs</LastGenOutput>
+      <LastGenOutput>rptBill1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptSalebymonth.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSalebymonth.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmCategoryView1.resx">
       <DependentUpon>frmCategoryView1.cs</DependentUpon>
