@@ -86,50 +86,48 @@ namespace Order_Management_System.Model
         //    }
         //}
 
-    private void guna2DataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
-    {
-        if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
+        private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //this is change to set form text properties before open
-            MainID = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
-            this.Close();
-        }
-        if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvPrint")
-        {
-            //Print bill
-            MainID = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
-            string qry = @"Select * from tblMain m 
+            if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
+            {
+                //this is change to set form text properties before open
+                MainID = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
+                this.Close();
+            }
+            if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvPrint")
+            {
+                //Print bill
+                MainID = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
+                string qry = @"Select *
+                        from tblMain m 
                         inner join tblDetails d on d.MainID = m.MainID
                         inner join Items i on i.itemID = d.itemmID
                         where m.MainID = " + MainID + "";
 
-            using (SqlConnection con = new SqlConnection(MainClass.con_string))
-            {
-                SqlCommand cmd = new SqlCommand(qry, con);
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlConnection con = new SqlConnection(MainClass.con_string))
+                {
+                    SqlCommand cmd = new SqlCommand(qry, con);
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
 
-                frmPrint frm = new frmPrint();
-                ReportDocument cr = new ReportDocument(); // Tạo instance của ReportDocument
+                    frmPrint frm = new frmPrint();
+                    ReportDocument cr = new ReportDocument(); // Tạo instance của ReportDocument
 
-                // Load tài liệu báo cáo từ đường dẫn (sửa lại đường dẫn tương ứng)
-                cr.Load("C:\\Users\\HI\\OneDrive - National Economics University\\CĐTT\\Order_Management_System\\Order_Management_System\\Reports\\rptBill.rpt");
+                    // Load tài liệu báo cáo từ đường dẫn (sửa lại đường dẫn tương ứng)
+                    cr.Load("C:\\Users\\HI\\OneDrive - National Economics University\\CĐTT\\Order_Management_System\\Order_Management_System\\Reports\\rptBill.rpt");
 
-                // Tìm các bảng liên kết trong tài liệu và gắn dữ liệu vào
-                cr.Database.Tables["tblMain"].SetDataSource(dt);
-                cr.Database.Tables["tblDetails"].SetDataSource(dt);
-                cr.Database.Tables["Items"].SetDataSource(dt);
+                    //// Tìm các bảng liên kết trong tài liệu và gắn dữ liệu vào
+                    //cr.SetDataSource(dt);
+                    cr.Database.Tables["tblMain"].SetDataSource(dt);
+                    cr.Database.Tables["tblDetails"].SetDataSource(dt);
+                    cr.Database.Tables["Items"].SetDataSource(dt);
 
-                frm.crystalReportViewer1.ReportSource = cr; // Gắn báo cáo với CrystalReportViewer
-                frm.crystalReportViewer1.Refresh();
-                frm.Show();
+                    frm.crystalReportViewer1.ReportSource = cr; // Gắn báo cáo với CrystalReportViewer
+                    frm.crystalReportViewer1.Refresh();
+                    frm.Show();
+                }
             }
         }
     }
-
-
-
-
-}
 }

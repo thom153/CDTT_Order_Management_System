@@ -168,6 +168,12 @@
     <Compile Include="Draft\frmDraftCatView.Designer.cs">
       <DependentUpon>frmDraftCatView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReport.Designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptBill.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -272,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Draft\frmDraftCatView.resx">
       <DependentUpon>frmDraftCatView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBill.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -445,6 +454,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-print-64 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-report-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-time-64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

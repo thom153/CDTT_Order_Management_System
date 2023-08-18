@@ -37,6 +37,7 @@ namespace Order_Management_System
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnExit = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.btnReport = new Guna.UI2.WinForms.Guna2Button();
             this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
             this.btnStaff = new Guna.UI2.WinForms.Guna2Button();
             this.btnProduct = new Guna.UI2.WinForms.Guna2Button();
@@ -52,6 +53,7 @@ namespace Order_Management_System
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.btnReport);
             this.guna2Panel1.Controls.Add(this.btnSettings);
             this.guna2Panel1.Controls.Add(this.btnStaff);
             this.guna2Panel1.Controls.Add(this.btnProduct);
@@ -155,6 +157,37 @@ namespace Order_Management_System
             this.btnExit.TabIndex = 0;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnReport
+            // 
+            this.btnReport.AutoRoundedCorners = true;
+            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnReport.BorderRadius = 32;
+            this.btnReport.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnReport.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnReport.CustomizableEdges.BottomRight = false;
+            this.btnReport.CustomizableEdges.TopRight = false;
+            this.btnReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReport.FillColor = System.Drawing.Color.Transparent;
+            this.btnReport.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.Image = global::Order_Management_System.Properties.Resources.icons8_report_50;
+            this.btnReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnReport.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnReport.IndicateFocus = true;
+            this.btnReport.Location = new System.Drawing.Point(44, 644);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.PressedColor = System.Drawing.Color.AliceBlue;
+            this.btnReport.Size = new System.Drawing.Size(207, 66);
+            this.btnReport.TabIndex = 9;
+            this.btnReport.Text = "Báo cáo";
+            this.btnReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnReport.TextOffset = new System.Drawing.Point(20, 0);
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // btnSettings
             // 
             this.btnSettings.AutoRoundedCorners = true;
@@ -175,15 +208,16 @@ namespace Order_Management_System
             this.btnSettings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSettings.ImageOffset = new System.Drawing.Point(10, 0);
             this.btnSettings.IndicateFocus = true;
-            this.btnSettings.Location = new System.Drawing.Point(45, 812);
+            this.btnSettings.Location = new System.Drawing.Point(45, 718);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(4);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.PressedColor = System.Drawing.Color.AliceBlue;
-            this.btnSettings.Size = new System.Drawing.Size(208, 66);
+            this.btnSettings.Size = new System.Drawing.Size(207, 66);
             this.btnSettings.TabIndex = 8;
             this.btnSettings.Text = "Cài đặt";
             this.btnSettings.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSettings.TextOffset = new System.Drawing.Point(20, 0);
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnStaff
             // 
@@ -205,11 +239,11 @@ namespace Order_Management_System
             this.btnStaff.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnStaff.ImageOffset = new System.Drawing.Point(10, 0);
             this.btnStaff.IndicateFocus = true;
-            this.btnStaff.Location = new System.Drawing.Point(45, 716);
+            this.btnStaff.Location = new System.Drawing.Point(45, 570);
             this.btnStaff.Margin = new System.Windows.Forms.Padding(4);
             this.btnStaff.Name = "btnStaff";
             this.btnStaff.PressedColor = System.Drawing.Color.AliceBlue;
-            this.btnStaff.Size = new System.Drawing.Size(208, 66);
+            this.btnStaff.Size = new System.Drawing.Size(207, 66);
             this.btnStaff.TabIndex = 7;
             this.btnStaff.Text = "Nhân viên";
             this.btnStaff.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -236,11 +270,11 @@ namespace Order_Management_System
             this.btnProduct.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnProduct.ImageOffset = new System.Drawing.Point(10, 0);
             this.btnProduct.IndicateFocus = true;
-            this.btnProduct.Location = new System.Drawing.Point(45, 616);
+            this.btnProduct.Location = new System.Drawing.Point(45, 496);
             this.btnProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.PressedColor = System.Drawing.Color.AliceBlue;
-            this.btnProduct.Size = new System.Drawing.Size(208, 66);
+            this.btnProduct.Size = new System.Drawing.Size(207, 66);
             this.btnProduct.TabIndex = 6;
             this.btnProduct.Text = "Món";
             this.btnProduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -267,11 +301,11 @@ namespace Order_Management_System
             this.btnCategory.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCategory.ImageOffset = new System.Drawing.Point(10, 0);
             this.btnCategory.IndicateFocus = true;
-            this.btnCategory.Location = new System.Drawing.Point(45, 516);
+            this.btnCategory.Location = new System.Drawing.Point(44, 422);
             this.btnCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.PressedColor = System.Drawing.Color.AliceBlue;
-            this.btnCategory.Size = new System.Drawing.Size(208, 66);
+            this.btnCategory.Size = new System.Drawing.Size(207, 66);
             this.btnCategory.TabIndex = 5;
             this.btnCategory.Text = "Nhóm món";
             this.btnCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -298,11 +332,11 @@ namespace Order_Management_System
             this.btnKitchen.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnKitchen.ImageOffset = new System.Drawing.Point(10, 0);
             this.btnKitchen.IndicateFocus = true;
-            this.btnKitchen.Location = new System.Drawing.Point(45, 408);
+            this.btnKitchen.Location = new System.Drawing.Point(44, 348);
             this.btnKitchen.Margin = new System.Windows.Forms.Padding(4);
             this.btnKitchen.Name = "btnKitchen";
             this.btnKitchen.PressedColor = System.Drawing.Color.AliceBlue;
-            this.btnKitchen.Size = new System.Drawing.Size(208, 66);
+            this.btnKitchen.Size = new System.Drawing.Size(207, 66);
             this.btnKitchen.TabIndex = 4;
             this.btnKitchen.Text = "Bếp";
             this.btnKitchen.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -329,11 +363,11 @@ namespace Order_Management_System
             this.btnOrder.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnOrder.ImageOffset = new System.Drawing.Point(10, 0);
             this.btnOrder.IndicateFocus = true;
-            this.btnOrder.Location = new System.Drawing.Point(45, 304);
+            this.btnOrder.Location = new System.Drawing.Point(45, 274);
             this.btnOrder.Margin = new System.Windows.Forms.Padding(4);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.PressedColor = System.Drawing.Color.AliceBlue;
-            this.btnOrder.Size = new System.Drawing.Size(208, 66);
+            this.btnOrder.Size = new System.Drawing.Size(207, 66);
             this.btnOrder.TabIndex = 3;
             this.btnOrder.Text = "Order";
             this.btnOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -365,7 +399,7 @@ namespace Order_Management_System
             this.btnTable.Margin = new System.Windows.Forms.Padding(4);
             this.btnTable.Name = "btnTable";
             this.btnTable.PressedColor = System.Drawing.Color.AliceBlue;
-            this.btnTable.Size = new System.Drawing.Size(208, 66);
+            this.btnTable.Size = new System.Drawing.Size(207, 66);
             this.btnTable.TabIndex = 2;
             this.btnTable.Text = "Bàn";
             this.btnTable.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -429,5 +463,6 @@ namespace Order_Management_System
         private Guna.UI2.WinForms.Guna2Button btnOrder;
         private System.Windows.Forms.Label lblUser;
         public Guna.UI2.WinForms.Guna2Panel ControlsPanel;
+        private Guna.UI2.WinForms.Guna2Button btnReport;
     }
 }

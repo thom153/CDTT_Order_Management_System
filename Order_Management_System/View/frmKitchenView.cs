@@ -111,19 +111,6 @@ namespace Order_Management_System.View
                     SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
                     da2.Fill(dt2);
 
-                    //for (int j = 0; j < dt2.Rows.Count; j++)
-                    //{
-                    //    Label lb4 = new Label();
-                    //    lb4.ForeColor = Color.White;
-                    //    lb4.Margin = new Padding(10, 5, 3, 10);
-                    //    lb4.AutoSize = true;
-                    //    int no = j + 1;
-                    //    lb4.Text = " " + no + " " + dt2.Rows[j]["iName"].ToString() + "" + dt2.Rows[j]["qty"].ToString();
-                    //    //lb4.Text = no + ". " + dt2.Rows[j]["iName"].ToString() + " - Số lượng: " + dt2.Rows[j]["qty"].ToString();
-
-                    //    p1.Controls.Add(lb4);
-                    //}
-
 
                     for (int j = 0; j < dt2.Rows.Count; j++)
                     {

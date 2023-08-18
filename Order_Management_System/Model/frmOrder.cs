@@ -36,6 +36,7 @@ namespace Order_Management_System.Model
 
             ItemPanel.Controls.Clear();
             LoadItems();
+            //MainID = 0; // Reset MainID when loading the form
         }
 
         private void AddCategory()
@@ -300,7 +301,7 @@ namespace Order_Management_System.Model
             // Reset dữ liệu sau khi gửi
             ResetOrderData();
         }
-        
+
         private void SaveOrderToDatabase(string status)
         {
             if (MainID == 0) //Insert
@@ -333,7 +334,7 @@ namespace Order_Management_System.Model
                     }
                 }
             }
-   
+
         }
 
         private int InsertMainRecord(string status)
@@ -463,6 +464,7 @@ namespace Order_Management_System.Model
         private void ResetOrderData()
         {
             // Reset dữ liệu trên form sau khi gửi bếp
+            MainID = 0;
             lblTable1.Visible = false;
             lblWaiter.Visible = false;
             lblTotal.Text = "0.00";
@@ -536,11 +538,7 @@ namespace Order_Management_System.Model
         }
 
     }
-} 
-
-
-
-
+}
 
 
 

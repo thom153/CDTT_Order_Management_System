@@ -303,6 +303,16 @@ namespace Order_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_report_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-report-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_restaurant_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-restaurant-50", resourceCulture);
@@ -426,6 +436,16 @@ namespace Order_Management_System.Properties {
         internal static System.Drawing.Bitmap icons8_table_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-table-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_time_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-time-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1,4 +1,5 @@
 ﻿using Order_Management_System.Model;
+using Order_Management_System.Reports;
 using Order_Management_System.View;
 using System;
 using System.Collections.Generic;
@@ -88,6 +89,21 @@ namespace Order_Management_System
         private void btnKitchen_Click(object sender, EventArgs e)
         {
             AddControls(new frmKitchenView());
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmReport());
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            string message = "Chức năng này sẽ được hoàn thiện trong thời gian tới";
+            string caption = "OMS";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            MessageBoxIcon icon = MessageBoxIcon.Information;
+
+            MessageBox.Show(message, caption, buttons, icon);
         }
     }
 }
