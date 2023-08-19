@@ -37,6 +37,9 @@ namespace Order_Management_System.Model
             ItemPanel.Controls.Clear();
             LoadItems();
             //MainID = 0; // Reset MainID when loading the form
+            //btnSave.Click += new EventHandler(btnSave_Click);
+            //btnKOTT.Click += new EventHandler(btnKoTT_Click);
+
         }
 
         private void AddCategory()
@@ -302,6 +305,60 @@ namespace Order_Management_System.Model
             ResetOrderData();
         }
 
+        //private void btnSave_Click(object sender, EventArgs e)
+        //{
+        //    if (!isDineInSelected)
+        //    {
+        //        guna2MessageDialog2.Show("Vui lòng chọn bàn và NVPV trước khi lưu.");
+        //        return;
+        //    }
+
+        //    if (MainID == 0)
+        //    {
+        //        // Nếu MainID là 0, có nghĩa đây là lần đầu bạn đang lưu đơn hàng.
+        //        // Trong trường hợp này, bạn có thể thực hiện thêm vào cơ sở dữ liệu với trạng thái "Đã lưu".
+        //        SaveOrderToDatabase("Đã lưu");
+
+        //        // Sau khi lưu, bạn có thể cho phép chọn nút btnKOTT.
+        //        btnKOTT.Enabled = true;
+
+        //        guna2MessageDialog1.Show("Lưu thành công!");
+        //    }
+        //    else
+        //    {
+        //        // Nếu MainID đã có giá trị, đây là việc cập nhật đơn hàng đã lưu.
+        //        // Trong trường hợp này, bạn chỉ cần cập nhật trạng thái của đơn hàng hiện tại thành "Đã lưu".
+        //        UpdateOrderStatus("Đã lưu");
+
+        //        guna2MessageDialog1.Show("Cập nhật thành công!");
+        //    }
+        //}
+        //private void UpdateOrderStatus(string status)
+        //{
+        //    string updateQuery = "UPDATE tblMain SET status = @status WHERE MainID = @MainID";
+
+        //    using (SqlCommand cmd = new SqlCommand(updateQuery, MainClass.con))
+        //    {
+        //        cmd.Parameters.AddWithValue("@MainID", MainID);
+        //        cmd.Parameters.AddWithValue("@status", status);
+
+        //        try
+        //        {
+        //            if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+        //            cmd.ExecuteNonQuery();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            guna2MessageDialog1.Show("Lỗi xảy ra khi cập nhật trạng thái đơn hàng: " + ex.Message);
+        //        }
+        //        finally
+        //        {
+        //            if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+        //        }
+        //    }
+        //}
+
+
         private void SaveOrderToDatabase(string status)
         {
             if (MainID == 0) //Insert
@@ -332,6 +389,7 @@ namespace Order_Management_System.Model
                     {
                         UpdateDetailRecord(detailID, itemID, quantity, price, amount);
                     }
+
                 }
             }
 
@@ -536,7 +594,6 @@ namespace Order_Management_System.Model
             lblTotal.Text = "00";
 
         }
-
     }
 }
 

@@ -76,7 +76,7 @@ namespace Order_Management_System.Model
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(743, 134);
+            this.guna2Panel1.Size = new System.Drawing.Size(743, 122);
             this.guna2Panel1.TabIndex = 30;
             // 
             // guna2ControlBox1
@@ -95,7 +95,7 @@ namespace Order_Management_System.Model
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(150, 42);
+            this.label1.Location = new System.Drawing.Point(136, 42);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(226, 38);
@@ -107,7 +107,7 @@ namespace Order_Management_System.Model
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.Image = global::Order_Management_System.Properties.Resources.icons8_bill_50;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(44, 14);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(30, 14);
             this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(98, 92);
@@ -203,14 +203,14 @@ namespace Order_Management_System.Model
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(30, 171);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(30, 152);
             this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.ReadOnly = true;
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 62;
             this.guna2DataGridView1.RowTemplate.Height = 40;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(678, 388);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(678, 476);
             this.guna2DataGridView1.TabIndex = 11;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;

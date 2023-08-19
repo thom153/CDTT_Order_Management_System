@@ -36,7 +36,6 @@ namespace Order_Management_System.Reports
             da.Fill(dt);
             MainClass.con.Close();
             frmPrint frm = new frmPrint();
-           
             rptSalebymonth cr = new rptSalebymonth();
             cr.SetDataSource(dt); // Đặt nguồn dữ liệu cho báo cáo
             frm.crystalReportViewer1.ReportSource = cr; // Gắn báo cáo với CrystalReportViewer

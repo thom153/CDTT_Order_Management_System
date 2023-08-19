@@ -34,13 +34,14 @@ namespace Order_Management_System.Reports
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.btnReport = new Guna.UI2.WinForms.Guna2Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(31, 46);
+            this.label1.Location = new System.Drawing.Point(42, 110);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 28);
@@ -51,8 +52,8 @@ namespace Order_Management_System.Reports
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(36, 91);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Location = new System.Drawing.Point(47, 155);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(184, 34);
             this.dateTimePicker1.TabIndex = 1;
@@ -61,8 +62,8 @@ namespace Order_Management_System.Reports
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(305, 91);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker2.Location = new System.Drawing.Point(316, 155);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(184, 34);
             this.dateTimePicker2.TabIndex = 3;
@@ -71,7 +72,7 @@ namespace Order_Management_System.Reports
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(300, 46);
+            this.label2.Location = new System.Drawing.Point(311, 110);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 28);
@@ -90,7 +91,7 @@ namespace Order_Management_System.Reports
             this.btnReport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnReport.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport.ForeColor = System.Drawing.Color.White;
-            this.btnReport.Location = new System.Drawing.Point(36, 174);
+            this.btnReport.Location = new System.Drawing.Point(47, 238);
             this.btnReport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(126, 51);
@@ -98,22 +99,34 @@ namespace Order_Management_System.Reports
             this.btnReport.Text = "Báo cáo";
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(42, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(313, 38);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "BÁO CÁO DOANH THU";
+            // 
             // frmSalebymonth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(557, 483);
+            this.ClientSize = new System.Drawing.Size(555, 342);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSalebymonth";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmSalebymonth";
+            this.Text = "Bao cao doanh thu";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,5 +139,6 @@ namespace Order_Management_System.Reports
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label2;
         public Guna.UI2.WinForms.Guna2Button btnReport;
+        private System.Windows.Forms.Label label3;
     }
 }

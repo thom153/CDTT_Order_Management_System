@@ -70,6 +70,7 @@ namespace Order_Management_System.Model
                                 inner join tblDetails d on d.MainID = m.MainID
                                 inner join Items i on i.itemID = d.itemmID
                                 where m.MainID = '" + MainID + "'";
+                //string qry = @"Select * from staff";
 
                 SqlCommand cmd = new SqlCommand(qry, MainClass.con);
                 MainClass.con.Open();
@@ -80,13 +81,14 @@ namespace Order_Management_System.Model
 
                 frmPrint frm = new frmPrint();
                 rptBill1 cr = new rptBill1();
-                //    cr.Load("C:\\Users\\HI\\OneDrive - National Economics University\\CĐTT\\Order_Management_System\\Order_Management_System\\Reports\\rptBill.rpt"); 
                 cr.SetDataSource(dt);
                 frm.crystalReportViewer1.ReportSource = cr;
                 frm.crystalReportViewer1.Refresh();
                 frm.Show();
 
             }
+
+
         }
     }
 }
@@ -94,94 +96,4 @@ namespace Order_Management_System.Model
 
 
 
-    //        private void guna2DataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
-    //        {
-    //            if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
-    //            {
-    //                //this is change to set form text properties before open
-    //                MainID = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
-    //                this.Close();
-    //            }
-    //            if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvPrint")
-    //            {
-    //            // Print bill
-    //            MainID = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
-
-    //            //string qry = @"Select * from tblMain m 
-    //            //                inner join tblDetails d on d.MainID = m.MainID
-    //            //                inner join Items i on i.itemID = d.itemmID
-    //            //                where m.MainID = " + MainID + "";
-    //            string qry = @"Select *
-    //                from tblMain m 
-    //                inner join tblDetails d on d.MainID = m.MainID
-    //                inner join Items i on i.itemID = d.itemmID
-    //                 where m.MainID = '" + MainID + "'";
-
-    //            SqlCommand cmd = new SqlCommand(qry, MainClass.con);
-    //                MainClass.con.Open();
-    //                DataTable dt = new DataTable();
-    //                SqlDataAdapter da = new SqlDataAdapter(cmd);
-    //                da.Fill(dt);
-    //                MainClass.con.Close();
-
-    //                frmPrint frm = new frmPrint();
-    //                ReportDocument cr = new ReportDocument();
-    //                cr.Load("C:\\Users\\HI\\OneDrive - National Economics University\\CĐTT\\Order_Management_System\\Order_Management_System\\Reports\\rptBill.rpt"); // Thay thế path_to_your_rptBill.rpt bằng đường dẫn thực tế đến tập tin báo cáo
-    //                cr.SetDataSource(dt); // Đặt nguồn dữ liệu cho báo cáo
-    //                frm.crystalReportViewer1.ReportSource = cr; // Gắn báo cáo với CrystalReportViewer
-    //                frm.crystalReportViewer1.Refresh();
-    //                frm.Show();
-    //            }
-    //        }
-    //    }
-    //}
-
-
-
-    ////private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-    ////{
-    ////    if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
-    ////    {
-    ////        //this is change to set form text properties before open
-    ////        MainID = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
-    ////        this.Close();
-    ////    }
-    ////    if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvPrint")
-    ////    {
-    ////        //Print bill
-    ////        MainID = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
-    ////        string qry = @"Select *
-    ////                from tblMain m 
-    ////                inner join tblDetails d on d.MainID = m.MainID
-    ////                inner join Items i on i.itemID = d.itemmID
-    ////                 where m.MainID = '" + MainID + "'";
-
-    ////        //Console.WriteLine(qry);
-
-    ////        using (SqlConnection con = new SqlConnection(MainClass.con_string))
-    ////        {
-    ////            SqlCommand cmd = new SqlCommand(qry, con);
-    ////            DataTable dt = new DataTable();
-    ////            SqlDataAdapter da = new SqlDataAdapter(cmd);
-    ////            da.Fill(dt);
-
-    ////            frmPrint frm = new frmPrint();
-    ////            ReportDocument cr = new ReportDocument(); // Tạo instance của ReportDocument
-
-    ////            // Load tài liệu báo cáo từ đường dẫn (sửa lại đường dẫn tương ứng)
-    ////            cr.Load("C:\\Users\\HI\\OneDrive - National Economics University\\CĐTT\\Order_Management_System\\Order_Management_System\\Reports\\rptBill.rpt");
-
-    //            //// Tìm các bảng liên kết trong tài liệu và gắn dữ liệu vào
-    //            //cr.SetDataSource(dt);
-    //            cr.Database.Tables["tblMain"].SetDataSource(dt);
-    //            cr.Database.Tables["tblDetails"].SetDataSource(dt);
-    //            cr.Database.Tables["Items"].SetDataSource(dt);
-
-    //            frm.crystalReportViewer1.ReportSource = cr; // Gắn báo cáo với CrystalReportViewer
-    //            frm.crystalReportViewer1.Refresh();
-    //            frm.Show();
-    //        }
-    //    }
-
-
-
+   

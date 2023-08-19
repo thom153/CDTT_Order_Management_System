@@ -30,14 +30,16 @@ namespace Order_Management_System.Model
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrder));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.guna2PictureBox10 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnDinein = new Guna.UI2.WinForms.Guna2TileButton();
             this.lblWaiter = new System.Windows.Forms.Label();
             this.guna2PictureBox8 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -46,8 +48,6 @@ namespace Order_Management_System.Model
             this.lblTable1 = new System.Windows.Forms.Label();
             this.btnKOTT = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnNeww = new Guna.UI2.WinForms.Guna2TileButton();
-            this.label9 = new System.Windows.Forms.Label();
-            this.guna2PictureBox9 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2TileButton9 = new Guna.UI2.WinForms.Guna2TileButton();
@@ -83,10 +83,6 @@ namespace Order_Management_System.Model
             this.CategoryPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.ItemPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.ucItem4 = new Order_Management_System.Model.ucItem();
-            this.ucItem2 = new Order_Management_System.Model.ucItem();
-            this.ucItem1 = new Order_Management_System.Model.ucItem();
-            this.ucItem3 = new Order_Management_System.Model.ucItem();
             this.guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dgvSno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,13 +97,17 @@ namespace Order_Management_System.Model
             this.guna2MessageDialog3 = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ucItem4 = new Order_Management_System.Model.ucItem();
+            this.ucItem2 = new Order_Management_System.Model.ucItem();
+            this.ucItem1 = new Order_Management_System.Model.ucItem();
+            this.ucItem3 = new Order_Management_System.Model.ucItem();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
@@ -192,6 +192,8 @@ namespace Order_Management_System.Model
             // 
             // guna2Panel6
             // 
+            this.guna2Panel6.Controls.Add(this.label8);
+            this.guna2Panel6.Controls.Add(this.guna2PictureBox10);
             this.guna2Panel6.Controls.Add(this.btnDinein);
             this.guna2Panel6.Controls.Add(this.lblWaiter);
             this.guna2Panel6.Controls.Add(this.guna2PictureBox8);
@@ -200,14 +202,40 @@ namespace Order_Management_System.Model
             this.guna2Panel6.Controls.Add(this.lblTable1);
             this.guna2Panel6.Controls.Add(this.btnKOTT);
             this.guna2Panel6.Controls.Add(this.btnNeww);
-            this.guna2Panel6.Controls.Add(this.label9);
-            this.guna2Panel6.Controls.Add(this.guna2PictureBox9);
             this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.guna2Panel6.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.Size = new System.Drawing.Size(1087, 114);
             this.guna2Panel6.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(90, 43);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 32);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Order";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2PictureBox10
+            // 
+            this.guna2PictureBox10.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox10.Image = global::Order_Management_System.Properties.Resources.icons8_restaurant_80;
+            this.guna2PictureBox10.ImageRotate = 0F;
+            this.guna2PictureBox10.Location = new System.Drawing.Point(15, 12);
+            this.guna2PictureBox10.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2PictureBox10.Name = "guna2PictureBox10";
+            this.guna2PictureBox10.Size = new System.Drawing.Size(79, 92);
+            this.guna2PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox10.TabIndex = 11;
+            this.guna2PictureBox10.TabStop = false;
+            this.guna2PictureBox10.UseTransparentBackground = true;
             // 
             // btnDinein
             // 
@@ -224,7 +252,7 @@ namespace Order_Management_System.Model
             this.btnDinein.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDinein.ForeColor = System.Drawing.Color.White;
             this.btnDinein.Image = ((System.Drawing.Image)(resources.GetObject("btnDinein.Image")));
-            this.btnDinein.Location = new System.Drawing.Point(336, 12);
+            this.btnDinein.Location = new System.Drawing.Point(299, 12);
             this.btnDinein.Name = "btnDinein";
             this.btnDinein.Size = new System.Drawing.Size(120, 92);
             this.btnDinein.TabIndex = 10;
@@ -274,7 +302,7 @@ namespace Order_Management_System.Model
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(462, 12);
+            this.btnSave.Location = new System.Drawing.Point(425, 12);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 92);
             this.btnSave.TabIndex = 5;
@@ -296,7 +324,7 @@ namespace Order_Management_System.Model
             this.btnBill1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBill1.ForeColor = System.Drawing.Color.White;
             this.btnBill1.Image = ((System.Drawing.Image)(resources.GetObject("btnBill1.Image")));
-            this.btnBill1.Location = new System.Drawing.Point(714, 12);
+            this.btnBill1.Location = new System.Drawing.Point(677, 12);
             this.btnBill1.Name = "btnBill1";
             this.btnBill1.Size = new System.Drawing.Size(120, 92);
             this.btnBill1.TabIndex = 4;
@@ -331,7 +359,7 @@ namespace Order_Management_System.Model
             this.btnKOTT.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKOTT.ForeColor = System.Drawing.Color.White;
             this.btnKOTT.Image = ((System.Drawing.Image)(resources.GetObject("btnKOTT.Image")));
-            this.btnKOTT.Location = new System.Drawing.Point(588, 12);
+            this.btnKOTT.Location = new System.Drawing.Point(551, 12);
             this.btnKOTT.Name = "btnKOTT";
             this.btnKOTT.Size = new System.Drawing.Size(120, 92);
             this.btnKOTT.TabIndex = 3;
@@ -353,37 +381,12 @@ namespace Order_Management_System.Model
             this.btnNeww.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNeww.ForeColor = System.Drawing.Color.White;
             this.btnNeww.Image = ((System.Drawing.Image)(resources.GetObject("btnNeww.Image")));
-            this.btnNeww.Location = new System.Drawing.Point(210, 12);
+            this.btnNeww.Location = new System.Drawing.Point(173, 12);
             this.btnNeww.Name = "btnNeww";
             this.btnNeww.Size = new System.Drawing.Size(120, 92);
             this.btnNeww.TabIndex = 2;
             this.btnNeww.Text = "Thêm mới";
             this.btnNeww.Click += new System.EventHandler(this.btnNeww_Click_1);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(101, 37);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 38);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Order";
-            // 
-            // guna2PictureBox9
-            // 
-            this.guna2PictureBox9.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox9.Image")));
-            this.guna2PictureBox9.ImageRotate = 0F;
-            this.guna2PictureBox9.Location = new System.Drawing.Point(23, 21);
-            this.guna2PictureBox9.Name = "guna2PictureBox9";
-            this.guna2PictureBox9.Size = new System.Drawing.Size(83, 72);
-            this.guna2PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox9.TabIndex = 0;
-            this.guna2PictureBox9.TabStop = false;
-            this.guna2PictureBox9.UseTransparentBackground = true;
             // 
             // label6
             // 
@@ -944,73 +947,23 @@ namespace Order_Management_System.Model
             this.ItemPanel.Name = "ItemPanel";
             this.ItemPanel.Size = new System.Drawing.Size(481, 376);
             this.ItemPanel.TabIndex = 3;
-           
-            // 
-            // ucItem4
-            // 
-            this.ucItem4.iCategory = null;
-            this.ucItem4.id = 0;
-            this.ucItem4.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem4.iImage")));
-            this.ucItem4.iName = "Tên món";
-            this.ucItem4.iPrice = null;
-            this.ucItem4.Location = new System.Drawing.Point(3, 3);
-            this.ucItem4.Name = "ucItem4";
-            this.ucItem4.Size = new System.Drawing.Size(212, 225);
-            this.ucItem4.TabIndex = 3;
-            // 
-            // ucItem2
-            // 
-            this.ucItem2.iCategory = null;
-            this.ucItem2.id = 0;
-            this.ucItem2.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem2.iImage")));
-            this.ucItem2.iName = "Tên món";
-            this.ucItem2.iPrice = null;
-            this.ucItem2.Location = new System.Drawing.Point(221, 3);
-            this.ucItem2.Name = "ucItem2";
-            this.ucItem2.Size = new System.Drawing.Size(212, 225);
-            this.ucItem2.TabIndex = 5;
-           
-            // 
-            // ucItem1
-            // 
-            this.ucItem1.iCategory = null;
-            this.ucItem1.id = 0;
-            this.ucItem1.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem1.iImage")));
-            this.ucItem1.iName = "Tên món";
-            this.ucItem1.iPrice = null;
-            this.ucItem1.Location = new System.Drawing.Point(3, 234);
-            this.ucItem1.Name = "ucItem1";
-            this.ucItem1.Size = new System.Drawing.Size(212, 225);
-            this.ucItem1.TabIndex = 6;
-            // 
-            // ucItem3
-            // 
-            this.ucItem3.iCategory = null;
-            this.ucItem3.id = 0;
-            this.ucItem3.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem3.iImage")));
-            this.ucItem3.iName = "Tên món";
-            this.ucItem3.iPrice = null;
-            this.ucItem3.Location = new System.Drawing.Point(221, 234);
-            this.ucItem3.Name = "ucItem3";
-            this.ucItem3.Size = new System.Drawing.Size(212, 225);
-            this.ucItem3.TabIndex = 7;
             // 
             // guna2DataGridView2
             // 
             this.guna2DataGridView2.AllowUserToAddRows = false;
             this.guna2DataGridView2.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.guna2DataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.guna2DataGridView2.ColumnHeadersHeight = 50;
             this.guna2DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.guna2DataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1022,14 +975,14 @@ namespace Order_Management_System.Model
             this.dgvPrice,
             this.dgvAmount,
             this.dgvDel});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView2.Location = new System.Drawing.Point(647, 168);
             this.guna2DataGridView2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1180,7 +1133,7 @@ namespace Order_Management_System.Model
             this.txtSearch.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtSearch.IconLeft")));
-            this.txtSearch.Location = new System.Drawing.Point(163, 121);
+            this.txtSearch.Location = new System.Drawing.Point(173, 121);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
@@ -1189,6 +1142,62 @@ namespace Order_Management_System.Model
             this.txtSearch.Size = new System.Drawing.Size(386, 37);
             this.txtSearch.TabIndex = 18;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // ucItem4
+            // 
+            this.ucItem4.BackColor = System.Drawing.Color.White;
+            this.ucItem4.iCategory = null;
+            this.ucItem4.id = 0;
+            this.ucItem4.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem4.iImage")));
+            this.ucItem4.iName = "Tên món";
+            this.ucItem4.iPrice = null;
+            this.ucItem4.IsActive = true;
+            this.ucItem4.Location = new System.Drawing.Point(3, 3);
+            this.ucItem4.Name = "ucItem4";
+            this.ucItem4.Size = new System.Drawing.Size(212, 225);
+            this.ucItem4.TabIndex = 3;
+            // 
+            // ucItem2
+            // 
+            this.ucItem2.BackColor = System.Drawing.Color.White;
+            this.ucItem2.iCategory = null;
+            this.ucItem2.id = 0;
+            this.ucItem2.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem2.iImage")));
+            this.ucItem2.iName = "Tên món";
+            this.ucItem2.iPrice = null;
+            this.ucItem2.IsActive = true;
+            this.ucItem2.Location = new System.Drawing.Point(221, 3);
+            this.ucItem2.Name = "ucItem2";
+            this.ucItem2.Size = new System.Drawing.Size(212, 225);
+            this.ucItem2.TabIndex = 5;
+            // 
+            // ucItem1
+            // 
+            this.ucItem1.BackColor = System.Drawing.Color.White;
+            this.ucItem1.iCategory = null;
+            this.ucItem1.id = 0;
+            this.ucItem1.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem1.iImage")));
+            this.ucItem1.iName = "Tên món";
+            this.ucItem1.iPrice = null;
+            this.ucItem1.IsActive = true;
+            this.ucItem1.Location = new System.Drawing.Point(3, 234);
+            this.ucItem1.Name = "ucItem1";
+            this.ucItem1.Size = new System.Drawing.Size(212, 225);
+            this.ucItem1.TabIndex = 6;
+            // 
+            // ucItem3
+            // 
+            this.ucItem3.BackColor = System.Drawing.Color.White;
+            this.ucItem3.iCategory = null;
+            this.ucItem3.id = 0;
+            this.ucItem3.iImage = ((System.Drawing.Image)(resources.GetObject("ucItem3.iImage")));
+            this.ucItem3.iName = "Tên món";
+            this.ucItem3.iPrice = null;
+            this.ucItem3.IsActive = true;
+            this.ucItem3.Location = new System.Drawing.Point(221, 234);
+            this.ucItem3.Name = "ucItem3";
+            this.ucItem3.Size = new System.Drawing.Size(212, 225);
+            this.ucItem3.TabIndex = 7;
             // 
             // frmOrder
             // 
@@ -1217,8 +1226,8 @@ namespace Order_Management_System.Model
             this.guna2Panel5.PerformLayout();
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
@@ -1256,8 +1265,6 @@ namespace Order_Management_System.Model
         private Guna.UI2.WinForms.Guna2TileButton btnBill1;
         private Guna.UI2.WinForms.Guna2TileButton btnKOTT;
         private Guna.UI2.WinForms.Guna2TileButton btnNeww;
-        private System.Windows.Forms.Label label9;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox9;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
         private Guna.UI2.WinForms.Guna2TileButton guna2TileButton9;
@@ -1307,5 +1314,7 @@ namespace Order_Management_System.Model
         private Guna.UI2.WinForms.Guna2MessageDialog guna2MessageDialog2;
         private Guna.UI2.WinForms.Guna2MessageDialog guna2MessageDialog3;
         public Guna.UI2.WinForms.Guna2Button btnPayment;
+        private System.Windows.Forms.Label label8;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox10;
     }
 }
