@@ -54,10 +54,10 @@ namespace Order_Management_System.View
             // 
             // guna2Separator1
             // 
-            this.guna2Separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.guna2Separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Separator1.Location = new System.Drawing.Point(20, 140);
-            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(699, 13);
             this.guna2Separator1.TabIndex = 15;
@@ -67,8 +67,9 @@ namespace Order_Management_System.View
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(15, 21);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 25);
+            this.label2.Size = new System.Drawing.Size(204, 40);
             this.label2.TabIndex = 14;
             this.label2.Text = "Danh sách bàn";
             // 
@@ -78,8 +79,9 @@ namespace Order_Management_System.View
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(330, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 17);
+            this.label1.Size = new System.Drawing.Size(91, 28);
             this.label1.TabIndex = 12;
             this.label1.Text = "Tìm kiếm";
             // 
@@ -124,7 +126,7 @@ namespace Order_Management_System.View
             this.btnAdd.ImageSize = new System.Drawing.Size(55, 55);
             this.btnAdd.IndicateFocus = true;
             this.btnAdd.Location = new System.Drawing.Point(20, 50);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.PressedState.ImageSize = new System.Drawing.Size(55, 55);
             this.btnAdd.Size = new System.Drawing.Size(64, 72);
@@ -147,7 +149,7 @@ namespace Order_Management_System.View
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.IconLeft = global::Order_Management_System.Properties.Resources.icons8_search_64;
             this.txtSearch.Location = new System.Drawing.Point(333, 62);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(8, 11, 8, 11);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.PlaceholderText = "Nhập thông tin cần tìm";
@@ -162,8 +164,8 @@ namespace Order_Management_System.View
             this.guna2DataGridView1.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.guna2DataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.guna2DataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
@@ -193,11 +195,12 @@ namespace Order_Management_System.View
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.Location = new System.Drawing.Point(20, 161);
+            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 62;
             this.guna2DataGridView1.RowTemplate.Height = 40;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(699, 264);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(673, 156);
             this.guna2DataGridView1.TabIndex = 16;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -280,7 +283,7 @@ namespace Order_Management_System.View
             // 
             // frmTableView1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(751, 464);
@@ -291,6 +294,7 @@ namespace Order_Management_System.View
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmTableView1";
             this.Text = "frmTableView1";
             this.Load += new System.EventHandler(this.frmTableView1_Load);

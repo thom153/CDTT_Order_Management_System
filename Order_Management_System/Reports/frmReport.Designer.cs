@@ -31,10 +31,9 @@ namespace Order_Management_System.Reports
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReport));
             this.label1 = new System.Windows.Forms.Label();
-            this.btnTimeofOrder = new Guna.UI2.WinForms.Guna2Button();
+            this.btnVoidOrder = new Guna.UI2.WinForms.Guna2Button();
             this.btnSalebyStaff = new Guna.UI2.WinForms.Guna2Button();
             this.btnSalebymonth = new Guna.UI2.WinForms.Guna2Button();
-            this.btnVoidOrder = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // label1
@@ -48,21 +47,21 @@ namespace Order_Management_System.Reports
             this.label1.TabIndex = 3;
             this.label1.Text = "BÁO CÁO";
             // 
-            // btnTimeofOrder
+            // btnVoidOrder
             // 
-            this.btnTimeofOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTimeofOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTimeofOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTimeofOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTimeofOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnTimeofOrder.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnTimeofOrder.ForeColor = System.Drawing.Color.White;
-            this.btnTimeofOrder.Image = global::Order_Management_System.Properties.Resources.icons8_time_64;
-            this.btnTimeofOrder.Location = new System.Drawing.Point(67, 291);
-            this.btnTimeofOrder.Name = "btnTimeofOrder";
-            this.btnTimeofOrder.Size = new System.Drawing.Size(334, 87);
-            this.btnTimeofOrder.TabIndex = 2;
-            this.btnTimeofOrder.Text = "Báo cáo thời gian hoàn thành order";
+            this.btnVoidOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnVoidOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnVoidOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnVoidOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnVoidOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnVoidOrder.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnVoidOrder.ForeColor = System.Drawing.Color.White;
+            this.btnVoidOrder.Image = global::Order_Management_System.Properties.Resources.icons8_delete_graph_report_50;
+            this.btnVoidOrder.Location = new System.Drawing.Point(67, 289);
+            this.btnVoidOrder.Name = "btnVoidOrder";
+            this.btnVoidOrder.Size = new System.Drawing.Size(334, 87);
+            this.btnVoidOrder.TabIndex = 4;
+            this.btnVoidOrder.Text = "Báo cáo hủy order";
             // 
             // btnSalebyStaff
             // 
@@ -95,24 +94,8 @@ namespace Order_Management_System.Reports
             this.btnSalebymonth.Name = "btnSalebymonth";
             this.btnSalebymonth.Size = new System.Drawing.Size(334, 87);
             this.btnSalebymonth.TabIndex = 0;
-            this.btnSalebymonth.Text = "Báo cáo bán hàng theo tháng";
+            this.btnSalebymonth.Text = "Báo cáo bán hàng ";
             this.btnSalebymonth.Click += new System.EventHandler(this.btnSalebymonth_Click);
-            // 
-            // btnVoidOrder
-            // 
-            this.btnVoidOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnVoidOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnVoidOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnVoidOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnVoidOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnVoidOrder.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnVoidOrder.ForeColor = System.Drawing.Color.White;
-            this.btnVoidOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnVoidOrder.Image")));
-            this.btnVoidOrder.Location = new System.Drawing.Point(424, 103);
-            this.btnVoidOrder.Name = "btnVoidOrder";
-            this.btnVoidOrder.Size = new System.Drawing.Size(334, 87);
-            this.btnVoidOrder.TabIndex = 4;
-            this.btnVoidOrder.Text = "Báo cáo hủy order";
             // 
             // frmReport
             // 
@@ -121,7 +104,6 @@ namespace Order_Management_System.Reports
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnVoidOrder);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnTimeofOrder);
             this.Controls.Add(this.btnSalebyStaff);
             this.Controls.Add(this.btnSalebymonth);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -138,7 +120,6 @@ namespace Order_Management_System.Reports
 
         private Guna.UI2.WinForms.Guna2Button btnSalebymonth;
         private Guna.UI2.WinForms.Guna2Button btnSalebyStaff;
-        private Guna.UI2.WinForms.Guna2Button btnTimeofOrder;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnVoidOrder;
     }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,20 +28,20 @@ namespace Order_Management_System.Model
             double receipt = 0;
             double change = 0;
 
-            double.TryParse(txtBillAmount.Text, out amt);
+            amt = ParseCurrencyVN(txtBillAmount.Text);
+            //receipt = ParseCurrencyVN(txtReceived.Text);
             double.TryParse(txtReceived.Text, out receipt);
 
             change = Math.Abs(amt - receipt); //convert positive or negative to always positive
-            txtChange.Text = change.ToString();
+            txtChange.Text = formatCurrencyVN((decimal)change);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string qry = @"Update tblMain set total = @total, received = @rec, change = @change, status = N'Đã thanh toán'
+            string qry = @"Update tblMain set received = @rec, change = @change, status = N'Đã thanh toán'
                            where MainID = @id";
             Hashtable ht = new Hashtable();
             ht.Add("@id", MainID);
-            ht.Add("@total", txtBillAmount.Text);
             ht.Add("@rec", txtReceived.Text);
             ht.Add("@change", txtChange.Text);
 
@@ -111,7 +112,21 @@ namespace Order_Management_System.Model
 
         private void frmPayment_Load(object sender, EventArgs e)
         {
-            txtBillAmount.Text = amt.ToString();
+            txtBillAmount.Text = formatCurrencyVN(((decimal)amt));
+    
+
+        }
+        private string formatCurrencyVN(decimal value)
+        {
+            CultureInfo culture = new CultureInfo("vi-VN");
+            string result = value.ToString("c", culture);
+            return result;
+        }
+        public double ParseCurrencyVN(string formattedCurrency)
+        {
+            CultureInfo culture = new CultureInfo("vi-VN");
+            double value = double.Parse(formattedCurrency, NumberStyles.Currency, culture);
+            return value;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

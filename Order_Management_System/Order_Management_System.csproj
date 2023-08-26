@@ -499,5 +499,8 @@
   <ItemGroup>
     <None Include="Resources\icons8-time-64.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-delete-graph-report-50.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

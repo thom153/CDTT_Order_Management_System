@@ -23,6 +23,9 @@ namespace Order_Management_System.Model
         }
 
         public int MainID = 0;
+        private string TableName = "";
+        private string WaiterName = "";
+        public string status = "";
 
         private void guna2PictureBox8_Click(object sender, EventArgs e)
         {
@@ -245,41 +248,43 @@ namespace Order_Management_System.Model
             lblTotal.Text = "0.00";
         }
 
-        private bool isDineInSelected = false;
 
         private void btnDinein_Click(object sender, EventArgs e)
         {
             // Cập nhật trạng thái của nút Dine-In
-            isDineInSelected = true;
             frmTableSelect frm = new frmTableSelect();
             MainClass.BlurBackground(frm);
-            if (frm.TableName != "")
+            if (frm.TableName == "")
             {
-                lblTable1.Text = frm.TableName;
-                lblTable1.Visible = true;
+                lblTable1.Text = "";
+                TableName = "";
+                lblTable1.Visible = false;
             }
             else
             {
-                lblTable1.Text = "";
-                lblTable1.Visible = false;
+                lblTable1.Text = frm.TableName;
+                TableName = frm.TableName;
+                lblTable1.Visible = true;
             }
 
             frmWaiterSelect frm2 = new frmWaiterSelect();
             MainClass.BlurBackground(frm2);
-            if (frm2.WaiterName != "")
+            if (frm2.WaiterName == "")
             {
-                lblWaiter.Text = frm2.WaiterName;
-                lblWaiter.Visible = true;
+                lblWaiter.Text = "";
+                WaiterName = "";
+                lblWaiter.Visible = false;
             }
             else
             {
-                lblWaiter.Text = "";
-                lblWaiter.Visible = false;
+                lblWaiter.Text = frm2.WaiterName;
+                WaiterName = frm2.WaiterName;
+                lblWaiter.Visible = true;
             }
         }
         private void btnKoTT_Click(object sender, EventArgs e)
         {
-            if (!isDineInSelected)
+            if (TableName == "" || WaiterName == "")
             {
                 guna2MessageDialog2.Show("Vui lòng chọn bàn và NVPV trước khi gửi bếp.");
                 return;
@@ -293,9 +298,9 @@ namespace Order_Management_System.Model
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!isDineInSelected)
+            if (TableName == "" || WaiterName == "")
             {
-                guna2MessageDialog2.Show("Vui lòng chọn bàn và NVPV trước khi gửi bếp.");
+                guna2MessageDialog2.Show("Vui lòng chọn bàn và NVPV trước khi lưu.");
                 return;
             }
             SaveOrderToDatabase("Đã lưu"); // Truyền trạng thái "Đã lưu"
@@ -304,60 +309,6 @@ namespace Order_Management_System.Model
             // Reset dữ liệu sau khi gửi
             ResetOrderData();
         }
-
-        //private void btnSave_Click(object sender, EventArgs e)
-        //{
-        //    if (!isDineInSelected)
-        //    {
-        //        guna2MessageDialog2.Show("Vui lòng chọn bàn và NVPV trước khi lưu.");
-        //        return;
-        //    }
-
-        //    if (MainID == 0)
-        //    {
-        //        // Nếu MainID là 0, có nghĩa đây là lần đầu bạn đang lưu đơn hàng.
-        //        // Trong trường hợp này, bạn có thể thực hiện thêm vào cơ sở dữ liệu với trạng thái "Đã lưu".
-        //        SaveOrderToDatabase("Đã lưu");
-
-        //        // Sau khi lưu, bạn có thể cho phép chọn nút btnKOTT.
-        //        btnKOTT.Enabled = true;
-
-        //        guna2MessageDialog1.Show("Lưu thành công!");
-        //    }
-        //    else
-        //    {
-        //        // Nếu MainID đã có giá trị, đây là việc cập nhật đơn hàng đã lưu.
-        //        // Trong trường hợp này, bạn chỉ cần cập nhật trạng thái của đơn hàng hiện tại thành "Đã lưu".
-        //        UpdateOrderStatus("Đã lưu");
-
-        //        guna2MessageDialog1.Show("Cập nhật thành công!");
-        //    }
-        //}
-        //private void UpdateOrderStatus(string status)
-        //{
-        //    string updateQuery = "UPDATE tblMain SET status = @status WHERE MainID = @MainID";
-
-        //    using (SqlCommand cmd = new SqlCommand(updateQuery, MainClass.con))
-        //    {
-        //        cmd.Parameters.AddWithValue("@MainID", MainID);
-        //        cmd.Parameters.AddWithValue("@status", status);
-
-        //        try
-        //        {
-        //            if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
-        //            cmd.ExecuteNonQuery();
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            guna2MessageDialog1.Show("Lỗi xảy ra khi cập nhật trạng thái đơn hàng: " + ex.Message);
-        //        }
-        //        finally
-        //        {
-        //            if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
-        //        }
-        //    }
-        //}
-
 
         private void SaveOrderToDatabase(string status)
         {
@@ -526,11 +477,12 @@ namespace Order_Management_System.Model
             lblTable1.Visible = false;
             lblWaiter.Visible = false;
             lblTotal.Text = "0.00";
-            isDineInSelected = false;
+            TableName = "";
+            WaiterName = "";
             guna2DataGridView2.Rows.Clear();
         }
 
-        public int id = 0;
+        //public int id = 0;
 
         private void btnBill1_Click(object sender, EventArgs e)
         {
@@ -539,9 +491,25 @@ namespace Order_Management_System.Model
 
             if (frm.MainID > 0)
             {
-                id = frm.MainID;
+                //id = frm.MainID;
+                MainID = frm.MainID;
+                TableName = frm.TableName;
+                lblTable1.Text = TableName;
+                lblTable1.Visible = true;
+                WaiterName = frm.WaiterName;
+                lblWaiter.Text = WaiterName;
+                lblWaiter.Visible = true;
+                status = frm.status;
                 LoadEntries();
             }
+            else
+            {
+                lblTable1.Text = "";
+                lblTable1.Visible = false;
+                lblWaiter.Text = "";
+                lblWaiter.Visible = false;
+                status = "";
+            }    
         }
 
 
@@ -551,7 +519,7 @@ namespace Order_Management_System.Model
                            FROM tblMain m
                            INNER JOIN tblDetails d ON m.MainID = d.MainID
                            INNER JOIN Items i ON i.itemID = d.itemmID
-                           where m.MainID = " + id + "";
+                           where m.MainID = " + MainID + "";
             SqlCommand cmd2 = new SqlCommand(qry, MainClass.con);
             DataTable dt2 = new DataTable();
             SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
@@ -576,12 +544,16 @@ namespace Order_Management_System.Model
             }
             GetTotal();
         }
-
+        
         private void btnPayment_Click(object sender, EventArgs e)
         {
-
+            if(status != "Hoàn thành")
+            {
+                guna2MessageDialog1.Show("Không thể thanh toán cho order chưa hoàn thành!");
+                return;
+            }    
             frmPayment frm = new frmPayment();
-            frm.MainID = id;
+            frm.MainID = MainID;
             frm.amt = Convert.ToDouble(lblTotal.Text);
             MainClass.BlurBackground(frm);
 

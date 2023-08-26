@@ -18,15 +18,9 @@ namespace Order_Management_System.Reports
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void btnReport_Click(object sender, EventArgs e)
+        private void btnReport_Click_1(object sender, EventArgs e)
         {
-            //string qry = @"select distinct * from tblMain m
-            //            where m.aDate between @sdate and @edate";
             string qry = @"select distinct * from tblMain m
                         where m.aDate between @sdate and @edate";
 

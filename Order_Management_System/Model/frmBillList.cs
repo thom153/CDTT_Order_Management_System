@@ -26,6 +26,9 @@ namespace Order_Management_System.Model
             LoadData();
         }
         public int MainID = 0;
+        public string TableName = "";
+        public string WaiterName = "";
+        public string status = "";
 
         private void LoadData()
         {
@@ -59,6 +62,9 @@ namespace Order_Management_System.Model
             {
                 //this is change to set form text properties before open
                 MainID = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
+                TableName = guna2DataGridView1.CurrentRow.Cells["dgvtable"].Value.ToString();
+                WaiterName = guna2DataGridView1.CurrentRow.Cells["dgvWaiter"].Value.ToString();
+                status = guna2DataGridView1.CurrentRow.Cells["dgvStatus"].Value.ToString();
                 this.Close();
 
             }
@@ -70,7 +76,6 @@ namespace Order_Management_System.Model
                                 inner join tblDetails d on d.MainID = m.MainID
                                 inner join Items i on i.itemID = d.itemmID
                                 where m.MainID = '" + MainID + "'";
-                //string qry = @"Select * from staff";
 
                 SqlCommand cmd = new SqlCommand(qry, MainClass.con);
                 MainClass.con.Open();

@@ -97,6 +97,7 @@ namespace Order_Management_System.Reports
             this.btnReport.Size = new System.Drawing.Size(126, 51);
             this.btnReport.TabIndex = 4;
             this.btnReport.Text = "Báo cáo";
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click_1);
             // 
             // label3
             // 
@@ -107,12 +108,10 @@ namespace Order_Management_System.Reports
             this.label3.Size = new System.Drawing.Size(553, 38);
             this.label3.TabIndex = 5;
             this.label3.Text = "BÁO CÁO DOANH THU THEO NHÂN VIÊN";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // frmSalebyWaiter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(630, 357);
             this.Controls.Add(this.label3);
@@ -126,7 +125,7 @@ namespace Order_Management_System.Reports
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSalebyWaiter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bao cao doanh thu";
+            this.Text = "Bao cao doanh thu theo nhan vien";
             this.ResumeLayout(false);
             this.PerformLayout();
 

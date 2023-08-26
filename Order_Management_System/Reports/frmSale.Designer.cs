@@ -101,18 +101,16 @@ namespace Order_Management_System.Reports
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(42, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(313, 38);
             this.label3.TabIndex = 5;
-            this.label3.Text = "BÁO CÁO DOANH THU";
+            this.label3.Text = "BÁO CÁO BÁN HÀNG";
             // 
-            // frmSalebymonth
+            // frmSale
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(555, 342);
             this.Controls.Add(this.label3);
@@ -124,7 +122,7 @@ namespace Order_Management_System.Reports
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmSalebymonth";
+            this.Name = "frmSale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bao cao doanh thu";
             this.ResumeLayout(false);
