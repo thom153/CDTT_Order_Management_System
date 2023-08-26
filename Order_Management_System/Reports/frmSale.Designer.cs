@@ -1,7 +1,7 @@
 ﻿
 namespace Order_Management_System.Reports
 {
-    partial class frmSalebymonth
+    partial class frmSale
     {
         /// <summary>
         /// Required designer variable.

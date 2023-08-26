@@ -19,7 +19,13 @@ namespace Order_Management_System.Reports
 
         private void btnSalebymonth_Click(object sender, EventArgs e)
         {
-            frmSalebymonth frm = new frmSalebymonth();
+            frmSale frm = new frmSale();
+            frm.ShowDialog();
+        }
+
+        private void btnSalebyStaff_Click(object sender, EventArgs e)
+        {
+            frmSalebyWaiter frm = new frmSalebyWaiter();
             frm.ShowDialog();
         }
     }

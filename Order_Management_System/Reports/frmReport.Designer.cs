@@ -79,6 +79,7 @@ namespace Order_Management_System.Reports
             this.btnSalebyStaff.Size = new System.Drawing.Size(334, 87);
             this.btnSalebyStaff.TabIndex = 1;
             this.btnSalebyStaff.Text = "Báo cáo doanh thu theo nhân viên";
+            this.btnSalebyStaff.Click += new System.EventHandler(this.btnSalebyStaff_Click);
             // 
             // btnSalebymonth
             // 

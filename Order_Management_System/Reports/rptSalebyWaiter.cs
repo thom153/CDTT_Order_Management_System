@@ -16,14 +16,14 @@ namespace Order_Management_System.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptSalebymonth : ReportClass {
+    public class rptSalebyWaiter : ReportClass {
         
-        public rptSalebymonth() {
+        public rptSalebyWaiter() {
         }
         
         public override string ResourceName {
             get {
-                return "rptSalebymonth.rpt";
+                return "rptSalebyWaiter.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Order_Management_System.Reports {
         
         public override string FullResourceName {
             get {
-                return "Order_Management_System.Reports.rptSalebymonth.rpt";
+                return "Order_Management_System.Reports.rptSalebyWaiter.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace Order_Management_System.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection2 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -82,7 +82,7 @@ namespace Order_Management_System.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection2 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -106,9 +106,9 @@ namespace Order_Management_System.Reports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptSalebymonth : Component, ICachedReport {
+    public class CachedrptSalebyWaiter : Component, ICachedReport {
         
-        public CachedrptSalebymonth() {
+        public CachedrptSalebyWaiter() {
         }
         
         [Browsable(false)]
@@ -145,7 +145,7 @@ namespace Order_Management_System.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptSalebymonth rpt = new rptSalebymonth();
+            rptSalebyWaiter rpt = new rptSalebyWaiter();
             rpt.Site = this.Site;
             return rpt;
         }

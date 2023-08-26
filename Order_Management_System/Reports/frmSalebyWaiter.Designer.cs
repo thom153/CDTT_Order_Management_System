@@ -1,7 +1,7 @@
 ﻿
 namespace Order_Management_System.Reports
 {
-    partial class frmSalybyWaiter
+    partial class frmSalebyWaiter
     {
         /// <summary>
         /// Required designer variable.
@@ -109,7 +109,7 @@ namespace Order_Management_System.Reports
             this.label3.Text = "BÁO CÁO DOANH THU THEO NHÂN VIÊN";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // frmSalybyWaiter
+            // frmSalebyWaiter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -124,7 +124,7 @@ namespace Order_Management_System.Reports
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmSalybyWaiter";
+            this.Name = "frmSalebyWaiter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bao cao doanh thu";
             this.ResumeLayout(false);
