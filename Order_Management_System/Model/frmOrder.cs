@@ -549,7 +549,7 @@ namespace Order_Management_System.Model
         {
             if(status != "Hoàn thành")
             {
-                guna2MessageDialog1.Show("Không thể thanh toán cho order chưa hoàn thành!");
+                guna2MessageDialog2.Show("Không thể thanh toán cho order chưa hoàn thành!");
                 return;
             }    
             frmPayment frm = new frmPayment();
