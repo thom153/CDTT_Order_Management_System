@@ -70,26 +70,27 @@ namespace Order_Management_System.Model
             }
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvPrint")
             {
-                //Print bill
-                MainID = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
-                string qry = @"Select * from tblMain m 
+                
+                    //Print bill
+                    MainID = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
+                    string qry = @"Select * from tblMain m 
                                 inner join tblDetails d on d.MainID = m.MainID
                                 inner join Items i on i.itemID = d.itemmID
                                 where m.MainID = '" + MainID + "'";
 
-                SqlCommand cmd = new SqlCommand(qry, MainClass.con);
-                MainClass.con.Open();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                MainClass.con.Close();
+                    SqlCommand cmd = new SqlCommand(qry, MainClass.con);
+                    MainClass.con.Open();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    MainClass.con.Close();
 
-                frmPrint frm = new frmPrint();
-                rptBill1 cr = new rptBill1();
-                cr.SetDataSource(dt);
-                frm.crystalReportViewer1.ReportSource = cr;
-                frm.crystalReportViewer1.Refresh();
-                frm.Show();
+                    frmPrint frm = new frmPrint();
+                    rptBill1 cr = new rptBill1();
+                    cr.SetDataSource(dt);
+                    frm.crystalReportViewer1.ReportSource = cr;
+                    frm.crystalReportViewer1.Refresh();
+                    frm.Show();
 
             }
 

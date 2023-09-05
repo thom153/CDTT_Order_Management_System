@@ -98,12 +98,7 @@ namespace Order_Management_System
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            string message = "Chức năng này sẽ được hoàn thiện trong thời gian tới";
-            string caption = "OMS";
-            MessageBoxButtons buttons = MessageBoxButtons.OK;
-            MessageBoxIcon icon = MessageBoxIcon.Information;
-
-            MessageBox.Show(message, caption, buttons, icon);
+            guna2MessageDialog1.Show("Chức năng này sẽ được hoàn thiện trong thời gian tới!");
         }
     }
 }

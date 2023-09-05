@@ -34,6 +34,7 @@ namespace Order_Management_System.Reports
             this.btnVoidOrder = new Guna.UI2.WinForms.Guna2Button();
             this.btnSalebyStaff = new Guna.UI2.WinForms.Guna2Button();
             this.btnSalebymonth = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2MessageDialog1 = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.SuspendLayout();
             // 
             // label1
@@ -62,6 +63,7 @@ namespace Order_Management_System.Reports
             this.btnVoidOrder.Size = new System.Drawing.Size(334, 87);
             this.btnVoidOrder.TabIndex = 4;
             this.btnVoidOrder.Text = "Báo cáo hủy order";
+            this.btnVoidOrder.Click += new System.EventHandler(this.btnVoidOrder_Click);
             // 
             // btnSalebyStaff
             // 
@@ -97,6 +99,15 @@ namespace Order_Management_System.Reports
             this.btnSalebymonth.Text = "Báo cáo bán hàng ";
             this.btnSalebymonth.Click += new System.EventHandler(this.btnSalebymonth_Click);
             // 
+            // guna2MessageDialog1
+            // 
+            this.guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.guna2MessageDialog1.Caption = "OMS";
+            this.guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+            this.guna2MessageDialog1.Parent = null;
+            this.guna2MessageDialog1.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
+            this.guna2MessageDialog1.Text = null;
+            // 
             // frmReport
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -122,5 +133,6 @@ namespace Order_Management_System.Reports
         private Guna.UI2.WinForms.Guna2Button btnSalebyStaff;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnVoidOrder;
+        private Guna.UI2.WinForms.Guna2MessageDialog guna2MessageDialog1;
     }
 }

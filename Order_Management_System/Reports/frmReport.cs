@@ -28,5 +28,10 @@ namespace Order_Management_System.Reports
             frmSalebyWaiter frm = new frmSalebyWaiter();
             frm.ShowDialog();
         }
+
+        private void btnVoidOrder_Click(object sender, EventArgs e)
+        {
+            guna2MessageDialog1.Show("Chức năng này sẽ được hoàn thiện trong thời gian tới!");
+        }
     }
 }

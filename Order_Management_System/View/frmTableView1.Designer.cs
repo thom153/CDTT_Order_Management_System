@@ -200,7 +200,7 @@ namespace Order_Management_System.View
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 62;
             this.guna2DataGridView1.RowTemplate.Height = 40;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(673, 156);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(699, 272);
             this.guna2DataGridView1.TabIndex = 16;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;

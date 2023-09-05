@@ -41,7 +41,7 @@ namespace Order_Management_System.Reports
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(42, 110);
+            this.label1.Location = new System.Drawing.Point(22, 70);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 28);
@@ -52,7 +52,7 @@ namespace Order_Management_System.Reports
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(47, 155);
+            this.dateTimePicker1.Location = new System.Drawing.Point(27, 115);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(184, 34);
@@ -62,7 +62,7 @@ namespace Order_Management_System.Reports
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(316, 155);
+            this.dateTimePicker2.Location = new System.Drawing.Point(262, 115);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(184, 34);
@@ -72,7 +72,7 @@ namespace Order_Management_System.Reports
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(311, 110);
+            this.label2.Location = new System.Drawing.Point(257, 70);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 28);
@@ -91,7 +91,7 @@ namespace Order_Management_System.Reports
             this.btnReport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnReport.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport.ForeColor = System.Drawing.Color.White;
-            this.btnReport.Location = new System.Drawing.Point(47, 238);
+            this.btnReport.Location = new System.Drawing.Point(27, 194);
             this.btnReport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(126, 51);
@@ -102,9 +102,9 @@ namespace Order_Management_System.Reports
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(42, 24);
+            this.label3.Location = new System.Drawing.Point(20, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(313, 38);
+            this.label3.Size = new System.Drawing.Size(297, 38);
             this.label3.TabIndex = 5;
             this.label3.Text = "BÁO CÁO BÁN HÀNG";
             // 
@@ -112,7 +112,7 @@ namespace Order_Management_System.Reports
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(555, 342);
+            this.ClientSize = new System.Drawing.Size(521, 266);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.dateTimePicker2);

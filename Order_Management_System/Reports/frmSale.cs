@@ -26,7 +26,8 @@ namespace Order_Management_System.Reports
                             INNER JOIN Items AS I ON D.itemmid = I.itemid
                             INNER JOIN Category AS C ON I.categoryid = C.catid
                           WHERE
-                             O.adate BETWEEN @sdate AND @edate";
+                             O.adate BETWEEN @sdate AND @edate
+                          AND O.status = N'Đã thanh toán'";
 
             SqlCommand cmd = new SqlCommand(qry, MainClass.con);
             cmd.Parameters.AddWithValue("@sdate", Convert.ToDateTime(dateTimePicker1.Value).Date);

@@ -22,7 +22,8 @@ namespace Order_Management_System.Reports
         private void btnReport_Click_1(object sender, EventArgs e)
         {
             string qry = @"select distinct * from tblMain m
-                        where m.aDate between @sdate and @edate";
+                        where m.aDate between @sdate and @edate
+                        and m.status = N'Đã thanh toán'";
 
             SqlCommand cmd = new SqlCommand(qry, MainClass.con);
             cmd.Parameters.AddWithValue("@sdate", Convert.ToDateTime(dateTimePicker1.Value).Date);
